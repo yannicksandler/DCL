@@ -1,0 +1,1297 @@
+options:
+  collate: utf8_spanish_ci
+  charset: utf8
+  type: InnoDB
+
+Menu:
+    columns:
+        Id:
+            type: integer
+            unsigned: true
+            primary: true
+            autoincrement: true
+        Name:
+            type: string(255)
+            notnull: true
+        UrlDefault:
+            type: string(255)
+            notnull: true         
+        Status:
+            type: integer
+            unsigned: true
+            default: 1
+            notnull: true
+    relations:
+        SubMenu:
+            class: MenuOption
+            local: Id
+            foreign: MenuId
+            type: many
+            
+MenuOption:
+    columns:
+        Id:
+            type: integer
+            unsigned: true
+            primary: true
+            autoincrement: true
+        Name:
+            type: string(255)
+            notnull: true
+        Url:
+            type: string(255)
+            notnull: true
+        MenuId:
+            type: integer
+            unsigned: true           
+        Status:
+            type: integer
+            unsigned: true
+            default: 1
+            notnull: true
+    relations:
+        Menu:
+            local: MenuId
+            foreign: Id
+            type: one
+            onDelete: CASCADE
+            onUpdate: CASCADE
+
+Cliente:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      unsigned: true
+      notnull: true
+      autoincrement: true
+    Nombre:
+      type: string(255)
+      unique: true
+      notnull: true
+    RazonSocial:
+      type: string(255)
+      unique: true
+      default: null
+    PersonaContacto:
+      type: string(255)
+      default: null
+    PersonaEmail:
+      type: string(255)
+      default: null
+    PersonaTelefono:
+      type: string(255)
+      default: null
+    RubroNombre:
+      type: string(255)
+      default: null
+    Observaciones:
+      type: string(255)
+      default: null
+    Cuit:
+      type: string(255)
+      unique: true
+      default: null
+    Localidad:
+      type: string(255)
+      default: null
+    Direccion:
+      type: string(255)
+      default: null
+    CodigoPostal:
+      type: string(45)
+      default: null
+    Telefono:
+      type: string(255)
+      default: null
+    Fax:
+      type: string(255)
+      default: null
+    Email:
+      type: string(255)
+      default: null
+    Status:
+      type: integer(4)
+      unsigned: true
+      notnull: true
+      default: '1'
+    TipoIvaId:
+      type: integer(4)
+      default: null
+    RubroId:
+      type: integer(4)
+      unsigned: true
+      default: null
+    SaldoInicial:
+      type: decimal(10)
+      scale: 2
+      unsigned: true
+      default: 0
+  relations:
+    TipoIva:
+      class: TipoIva
+      local: TipoIvaId
+      foreign: Id
+      foreignAlias: Clientes
+    Rubro:
+      class: Rubro
+      local: RubroId
+      foreign: Id
+      foreignAlias: Clientes
+  indexes:
+    fk_cliente_Rubro1:
+      fields: [RubroId]
+    fk_cliente_TipoIva1:
+      fields: [TipoIvaId]
+  options:
+    charset: utf8
+    
+Insumo:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      unsigned: true
+      notnull: true
+      autoincrement: true
+    Nombre:
+      type: string(255)
+      notnull: true
+    Cantidad:
+      type: decimal(10)
+      scale: 2
+      notnull: true
+    PrecioUnitarioSinIVA:
+      type: decimal(10)
+      scale: 3
+      notnull: true
+    Elegido:
+      type: string(255)
+      default: null
+    CondicionDePago:
+      type: string(255)
+      default: null
+    FormaDePago:
+      type: string(255)
+    Observaciones:
+      type: clob(65535)
+      default: null
+    OrdenId:
+      type: integer(4)
+      unsigned: true
+      notnull: true
+    ProveedorId:
+      type: integer(4)
+      unsigned: true
+      notnull: true
+    Status:
+      type: integer(4)
+      unsigned: true
+      notnull: true
+      default: '1'
+    OrdenDeCompraId:
+      type: integer(4)
+      unsigned: true
+    EsFlete:
+      type: string(2)
+      default: 'NO'
+      fixed: true
+    EsManoDeObra:
+      type: string(2)
+      default: 'NO'
+      fixed: true
+    EsComercializacion:
+      type: string(2)
+      default: 'NO'
+      fixed: true
+    PlazoDeEntregaComentario:
+      type: string(255)
+    PlazoDeEntrega:
+      type: integer(4)
+    LugarDeEntrega:
+      type: string(255)
+    FechaDeEntrega:
+      type: date
+      default: null
+  relations:
+    Orden:
+      class: OrdenDeTrabajo
+      local: OrdenId
+      foreign: Id
+      foreignAlias: Insumos
+      onUpdate: cascade
+    Proveedor:
+      class: Proveedor
+      local: ProveedorId
+      foreign: Id
+      foreignAlias: Insumos
+      onUpdate: cascade
+    OrdenDeCompra:
+      class: OrdenDeCompra
+      local: OrdenDeCompraId
+      foreign: Id
+      foreignAlias: Insumo
+  indexes:
+    ordenid_idx:
+      fields: [OrdenId]
+    proveedorid_idx:
+      fields: [ProveedorId]
+  options:
+    charset: utf8
+
+OrdenDeTrabajo:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      unsigned: true
+      notnull: true
+      autoincrement: true
+    Producto:
+      type: string(255)
+      notnull: true
+    DescripcionDeTrabajo:
+      type: clob(65535)
+      notnull: true
+    FechaInicio:
+      type: timestamp
+      notnull: true
+    FechaEntrega:
+      type: timestamp
+      notnull: true
+    FechaFin:
+      type: timestamp
+      default: null
+    CondicionDeCobro:
+      type: string(255)
+      default: null
+    LugarDeEntrega:
+      type: string(255)
+      default: null
+    TipoFactura:
+      type: string(255)
+      default: null
+    Observaciones:
+      type: string(255)
+      default: null
+    Cantidad:
+      type: integer(4)
+      unsigned: true
+      default: null
+    TotalSinIva:
+      type: decimal(10)
+      scale: 2
+      default: null
+    TotalConIva:
+      type: decimal(10)
+      scale: 2
+      default: null
+    ClienteId:
+      type: integer(4)
+      unsigned: true
+      notnull: true
+    EstadoId:
+      type: integer(4)
+      unsigned: true
+      notnull: true
+    PrioridadId:
+      type: integer(4)
+      unsigned: true
+    PrioridadComentario:
+      type: string(255)
+    Status:
+      type: integer(4)
+      unsigned: true
+      notnull: true
+      default: '1'
+    FechaFactura:
+      type: date
+    FacturaNumero:
+      type: string(255)
+    PresupuestoId:
+      type: integer(4)
+    FechaFacturacion:
+      type: date
+    CostosDeInicioProduccion:
+      type: decimal(10)
+      scale: 2
+      default: null
+    FacturaId:
+      type: integer(4)
+    TiempoEstimado:
+      type: integer(4)
+      unsigned: true
+      default: null
+    EsFicticia:
+      type: string(255)
+      default: 'NO'
+    CreadorUsuarioId:
+      type: integer(4)
+      unsigned: true
+      default: null
+  relations:
+    Cliente:
+      class: Cliente
+      local: ClienteId
+      foreign: Id
+      foreignAlias: OrdenesDeTrabajo
+      onUpdate: cascade
+    Estado:
+      class: OrdenEstado
+      local: EstadoId
+      foreign: Id
+      foreignAlias: OrdenesDeTrabajo
+      onUpdate: cascade
+    Prioridad:
+      class: Prioridad
+      local: PrioridadId
+      foreign: Id
+      foreignAlias: OrdenesDeTrabajo
+      onUpdate: cascade
+    Presupuesto:
+      class: Presupuesto
+      local: PresupuestoId
+      foreign: Id
+      foreignAlias: OrdenDeTrabajo
+    Factura:
+      class: Factura
+      local: FacturaId
+      foreign: Id
+      foreignAlias: OrdenesDeTrabajo
+    CreadorUsuario:
+      class: Usuario
+      local: CreadorUsuarioId
+      foreign: Id
+      foreignAlias: OrdenesDeTrabajo
+  indexes:
+    clienteid_idx:
+      fields: [ClienteId]
+    estadoid_idx:
+      fields: [EstadoId]
+    fk_orden_de_trabajo_Factura1:
+      fields: [FacturaId]
+    fk_creador_usuario1:
+      fields: [CreadorUsuarioId]
+  options:
+    charset: utf8
+
+OrdenEstado:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      unsigned: true
+      notnull: true
+      autoincrement: true
+    Nombre:
+      type: string(255)
+      unique: true
+      notnull: true
+    Status:
+      type: integer(4)
+      unsigned: true
+      notnull: true
+      default: '1'
+    Ordenamiento:
+      type: integer(4)
+      unsigned: true
+  options:
+    charset: utf8
+
+Prioridad:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      unsigned: true
+      notnull: true
+      autoincrement: true
+    Nombre:
+      type: string(255)
+      unique: true
+      notnull: true
+  options:
+    charset: utf8
+
+
+Proveedor:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      unsigned: true
+      notnull: true
+      autoincrement: true
+    Nombre:
+      type: string(255)
+      unique: true
+      notnull: true
+    RazonSocial:
+      type: string(255)
+      unique: true
+      default: null
+    PersonaContacto:
+      type: string(255)
+      default: null
+    PersonaEmail:
+      type: string(255)
+      default: null
+    PersonaTelefono:
+      type: string(255)
+      default: null
+    RubroNombre:
+      type: string(255)
+      default: null
+    Observaciones:
+      type: string(255)
+      default: null
+    Cuit:
+      type: string(255)
+      unique: true
+      default: null
+    Localidad:
+      type: string(255)
+      default: null
+    Direccion:
+      type: string(255)
+      default: null
+    CodigoPostal:
+      type: string(45)
+      default: null
+    Telefono:
+      type: string(255)
+      default: null
+    Fax:
+      type: string(255)
+      default: null
+    Email:
+      type: string(255)
+      default: null
+    Status:
+      type: integer(4)
+      unsigned: true
+      notnull: true
+      default: '1'
+    RubroId:
+      type: integer(4)
+      unsigned: true
+      default: null
+    TipoIvaId:
+      type: integer(4)
+      default: null
+    SaldoInicial:
+      type: decimal(10)
+      scale: 2
+      unsigned: true
+      default: 0            
+  relations:
+    Rubro:
+      class: Rubro
+      local: RubroId
+      foreign: Id
+      foreignAlias: Proveedores
+    TipoIva:
+      class: TipoIva
+      local: TipoIvaId
+      foreign: Id
+      foreignAlias: Proveedores      
+  indexes:
+    fk_Proveedor_Rubro:
+      fields: [RubroId]
+    fk_Proveedor_TipoIva:
+      fields: [TipoIvaId]      
+  options:
+    charset: utf8
+
+Usuario:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      unsigned: true
+      notnull: true
+      autoincrement: true
+    Usuario:
+      type: string(255)
+      unique: true
+      notnull: true
+    Password:
+      type: string(255)
+      notnull: true
+    Email:
+      type: string(255)
+      default: null
+    Nombre:
+      type: string(255)
+      default: null
+    Apellido:
+      type: string(255)
+      default: null
+    Cargo:
+      type: string(255)
+      default: null
+    UsuarioPerfilId:
+      type: integer(4)
+      unsigned: true
+  relations:
+    UsuarioPerfil:
+      class: UsuarioPerfil
+      local: UsuarioPerfilId
+      foreign: Id
+      foreignAlias: Usuarios
+  indexes:
+    perfilusuarioid_idx:
+      fields: [UsuarioPerfilId]
+  options:
+    charset: utf8
+
+OrdenDeCompra:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      unsigned: true
+      notnull: true
+      autoincrement: true
+    Fecha:
+      type: timestamp
+      notnull: true
+    Importe:
+      type: decimal(10)
+      scale: 2
+      default: null
+    TipoIvaId:
+      type: integer(4)
+      default: null
+    ProveedorId:
+      type: integer(4)
+      unsigned: true
+      default: null
+    OrdenDePagoId:
+      type: integer(4)
+      unsigned: true
+    MotivoAnulacion:
+      type: string(255)
+      default: null
+    FechaAnulacion:
+      type: timestamp
+    FechaDeEntrega:
+      type: timestamp
+    CondicionesDePago:
+      type: string(255)
+    PendienteDePago:
+      type: char(2)
+      default: SI
+  relations:
+    OrdenDePago:
+      class: OrdenDePago
+      local: OrdenDePagoId
+      foreign: Id
+      foreignAlias: OrdenesDeCompra
+    TipoIva:
+      class: TipoIva
+      local: TipoIvaId
+      foreign: Id
+      foreignAlias: OrdenesDeCompra
+    Proveedor:
+      class: Proveedor
+      local: ProveedorId
+      foreign: Id
+      foreignAlias: OrdenesDeCompra
+  indexes:
+    fk_OrdenDeCompra_Proveedor:
+      fields: [ProveedorId]
+    fk_OrdenDeCompra_TipoIva:
+      fields: [TipoIvaId]
+      
+OrdenDePago:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      unsigned: true
+      notnull: true
+      autoincrement: true
+    Numero:
+      type: string(255)
+    TipoDePago:
+      type: char(1)
+    Fecha:
+      type: timestamp
+      notnull: true
+    Importe:
+      type: decimal(10)
+      scale: 2
+      unsigned: true
+    MotivoAnulacion:
+      type: string(255)
+    Comentario:
+      type: string(255)
+    FechaAnulacion:
+      type: timestamp
+    ProveedorId:
+      type: integer(4)
+      unsigned: true
+  relations:
+    Proveedor:
+      class: Proveedor
+      local: ProveedorId
+      foreign: Id
+      foreignAlias: OrdenesDePago  
+
+Pago:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      unsigned: true
+      notnull: true
+      autoincrement: true
+    Importe:
+      type: decimal(10)
+      scale: 2
+      notnull: true
+    PagoTipoId:
+      type: integer(4)
+      unsigned: true
+      notnull: true
+    OrdenDePagoId:
+      type: integer(4)
+      unsigned: true
+      notnull: true
+    Detalle:
+      type: string(255)
+    FechaCheque:
+      type: date
+  relations:
+    PagoTipo:
+      class: PagoTipo
+      local: PagoTipoId
+      foreign: Id
+      foreignAlias: Pagos
+    OrdenDePago:
+      class: OrdenDePago
+      local: OrdenDePagoId
+      foreign: Id
+      foreignAlias: Pagos
+
+PagoTipo:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      unsigned: true
+      notnull: true
+      autoincrement: true
+    Nombre:
+      type: string(255)
+      notnull: true
+
+Liquidacion:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      unsigned: true
+      notnull: true
+      autoincrement: true
+    FechaFactura:
+      type: date
+      notnull: true
+    NumeroFactura:
+      type: integer(4)
+      unsigned: true
+    Importe:
+      type: decimal(10)
+      scale: 2
+      unsigned: true
+      notnull: true
+    Detalle:
+      type: string(255)
+    OrdenDePagoId:
+      type: integer(4)
+      unsigned: true
+      notnull: true
+  relations:
+    OrdenDePago:
+      class: OrdenDePago
+      local: OrdenDePagoId
+      foreign: Id
+      foreignAlias: Liquidaciones
+
+Presupuesto:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      notnull: true
+      autoincrement: true
+    Fecha:
+      type: date
+      notnull: true
+    Destinatario:
+      type: string(255)
+    PlazoDeEntregaComentario:
+      type: string(255)
+    PlazoDeEntrega:
+      type: integer(4)
+    FormasDePago:
+      type: string(255)
+    LugarDeEntrega:
+      type: string(255)
+    Comentario:
+      type: clob(65535)
+    Cantidad1:
+      type: integer(4)
+    Detalle1:
+      type: string(255)
+    Importe1:
+      type: decimal(10)
+      scale: 2
+    Cantidad2:
+      type: integer(4)
+    Detalle2:
+      type: string(255)
+    Importe2:
+      type: decimal(10)
+      scale: 2
+    Cantidad3:
+      type: integer(4)
+    Detalle3:
+      type: string(255)
+    Importe3:
+      type: decimal(10)
+      scale: 2
+    FechaAprobacion:
+      type: date
+      default: null
+  options:
+    charset: utf8
+    collate: utf8_spanish_ci
+
+OrdenEstadoHistorial:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      unsigned: true
+      notnull: true
+      autoincrement: true
+    Fecha:
+      type: date
+      notnull: true
+    OrdenDeTrabajoId:
+      type: integer(4)
+      unsigned: true
+    OrdenEstadoId:
+      type: integer(4)
+      unsigned: true
+      notnull: true
+  relations:
+    OrdenDeTrabajo:
+      class: OrdenDeTrabajo
+      local: OrdenDeTrabajoId
+      foreign: Id
+      foreignAlias: OrdenEstadoHistorial
+    OrdenEstado:
+      class: OrdenEstado
+      local: OrdenEstadoId
+      foreign: Id
+      foreignAlias: OrdenEstadoHistorial
+  indexes:
+    fk_OrdenEstadoHistorial_orden_de_trabajo1:
+      fields: [OrdenDeTrabajoId]
+    fk_OrdenEstadoHistorial_orden_estado1:
+      fields: [OrdenEstadoId]
+
+Factura:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      notnull: true
+    Fecha:
+      type: date
+      notnull: true
+    ClienteId:
+      type: integer(4)
+      unsigned: true
+      notnull: true
+    Importe:
+      type: decimal(10)
+      scale: 2
+      unsigned: true
+      notnull: true
+    TipoIvaId:
+      type: integer(4)
+      primary: true
+      notnull: true
+    Comentario:
+      type: clob(65535)
+    ComentarioImporte:
+      type: decimal(10)
+      scale: 2
+    FechaAnulacion:
+      type: date
+      default: null
+    ImporteIva:
+      type: decimal(10)
+      scale: 2
+      unsigned: true
+    ImporteSubtotal:
+      type: decimal(10)
+      scale: 2
+      unsigned: true
+  relations:
+    Cliente:
+      class: Cliente
+      local: ClienteId
+      foreign: Id
+      foreignAlias: Facturas
+    TipoIva:
+      class: TipoIva
+      local: TipoIvaId
+      foreign: Id
+      foreignAlias: Facturas
+  indexes:
+    fk_Factura_cliente1:
+      fields: [ClienteId]
+    fk_Factura_TipoIva1:
+      fields: [TipoIvaId]
+
+
+TipoIva:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      notnull: true
+      autoincrement: true
+    Nombre:
+      type: string(255)
+      default: null
+    Abreviatura:
+      type: string(5)
+      default: null
+    Discriminado:
+      type: decimal(5)
+      scale: 2
+      default: null
+    Adicional:
+      type: decimal(5)
+      scale: 2
+      default: null
+    Incluido:
+      type: decimal(5)
+      scale: 2
+      default: null
+    Letra_comp:
+      type: string(1)
+      default: null
+      fixed: true
+     
+Configuracion:
+    columns:
+      Id:
+        type: integer
+        unsigned: true
+        primary: true
+        autoincrement: true
+      Nombre:
+        type: string(30)
+        notnull: true
+      Valor:
+        type: string(1000)
+        notnull: true
+    indexes:
+      idxRegistroNombreUnique:
+        fields:
+          Nombre:
+            sorting: ASC
+            length: 30
+        type: unique  
+
+UsuarioPerfil:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      unsigned: true
+      notnull: true
+      autoincrement: true
+    Nombre:
+      type: string(255)
+      notnull: true
+    UrlInicio:
+      type: string(255)
+      notnull: true
+
+UsuarioPerfilMenu:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      unsigned: true
+      notnull: true
+      autoincrement: true
+    UsuarioPerfilId:
+      type: integer(4)
+      unsigned: true
+      notnull: true
+    MenuId:
+      type: integer
+      unsigned: true
+      notnull: true
+  relations:
+    UsuarioPerfil:
+      class: UsuarioPerfil
+      local: UsuarioPerfilId
+      foreign: Id
+      foreignAlias: UsuarioPerfilMenus
+    Menu:
+      class: Menu
+      local: MenuId
+      foreign: Id
+      foreignAlias: UsuarioPerfilMenus
+  indexes:
+    unique:
+      fields:
+        UsuarioPerfilId:
+          sorting: ASC
+        MenuId:
+          sorting: ASC
+      type: unique
+      
+
+UsuarioPerfilControllerAction:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      unsigned: true
+      notnull: true
+      autoincrement: true
+    UsuarioPerfilId:
+      type: integer(4)
+      unsigned: true
+      notnull: true
+    ControllerActionId:
+      type: integer(4)
+      unsigned: true
+      notnull: true
+  relations:
+    UsuarioPerfil:
+      class: UsuarioPerfil
+      local: UsuarioPerfilId
+      foreign: Id
+      foreignAlias: UsuarioPerfilControllerActions
+    ControllerAction:
+      class: ControllerAction
+      local: ControllerActionId
+      foreign: Id
+      foreignAlias: UsuarioPerfilControllerActions
+
+ControllerAction:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      unsigned: true
+      autoincrement: true
+    ControllerAction:
+      type: clob(65535)
+      notnull: true
+           
+Cobranza:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      unsigned: true
+      autoincrement: true
+      notnull: true
+    Numero:
+      type: string(255)
+    Tipo:
+      type: string(1)
+    Fecha:
+      type: date
+      notnull: true
+    ClienteId:
+      type: integer(4)
+      unsigned: true
+      notnull: true
+    Importe:
+      type: decimal(10)
+      scale: 2
+      unsigned: true
+    Comentario:
+      type: clob(65535)
+    FechaAnulacion:
+      type: date
+    MotivoAnulacion:
+      type: clob(65535)
+  relations:
+    Cliente:
+      class: Cliente
+      local: ClienteId
+      foreign: Id
+      foreignAlias: Cobranzas
+  indexes:
+    fk_Cobranza_cliente1:
+      fields: [ClienteId]
+
+CobranzaDetalle:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      unsigned: true
+      notnull: true
+      autoincrement: true
+    Importe:
+      type: decimal(10)
+      scale: 2
+      unsigned: true
+      notnull: true
+    Detalle:
+      type: string(255)
+    FechaCheque:
+      type: date
+    CobranzaId:
+      type: integer(4)
+      unsigned: true
+      notnull: true
+    PagoTipoId:
+      type: integer(4)
+      unsigned: true
+      notnull: true
+  relations:
+    Cobranza:
+      class: Cobranza
+      local: CobranzaId
+      foreign: Id
+      foreignAlias: CobranzaDetalles
+    PagoTipo:
+      class: PagoTipo
+      local: PagoTipoId
+      foreign: Id
+      foreignAlias: CobranzaDetalles
+  indexes:
+    fk_CobranzaLiquidacion_Cobranza1:
+      fields: [CobranzaId]
+    fk_CobranzaLiquidacion_pago_tipo1:
+      fields: [PagoTipoId]
+
+CobranzaLiquidacion:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      unsigned: true
+      notnull: true
+      autoincrement: true
+    Importe:
+      type: decimal(10)
+      scale: 2
+      unsigned: true
+      notnull: true
+    CobranzaId:
+      type: integer(4)
+      unsigned: true
+      notnull: true
+    FacturaId:
+      type: integer(4)
+      notnull: true
+    FechaGrabacion:
+      type: datetime
+  relations:
+    Cobranza:
+      class: Cobranza
+      local: CobranzaId
+      foreign: Id
+      foreignAlias: CobranzaLiquidaciones
+    Factura:
+      class: Factura
+      local: FacturaId
+      foreign: Id
+      foreignAlias: CobranzaLiquidaciones
+  indexes:
+    fk_CobranzaLiquidacion_Cobranza2:
+      fields: [CobranzaId]
+    fk_CobranzaLiquidacion_Factura1:
+      fields: [FacturaId]
+
+OrdenDePagoOrdenDeCompra:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      unsigned: true
+      notnull: true
+      autoincrement: true
+    OrdenDePagoId:
+      type: integer(4)
+      unsigned: true
+      notnull: true
+    OrdenDeCompraId:
+      type: integer(4)
+      unsigned: true
+      notnull: true
+    ImporteAbonado:
+      type: decimal(10)
+      scale: 2
+      notnull: true
+  relations:
+    OrdenDePago:
+      class: OrdenDePago
+      local: OrdenDePagoId
+      foreign: Id
+      foreignAlias: OrdenDePagoOrdenDeCompra
+    OrdenDeCompra:
+      class: OrdenDeCompra
+      local: OrdenDeCompraId
+      foreign: Id
+      foreignAlias: OrdenDePagoOrdenDeCompra
+  indexes:
+    fk_OrdenDePagoOrdenDeCompra_orden_de_pago1:
+      fields: [OrdenDePagoId]
+    fk_OrdenDePagoOrdenDeCompra_orden_de_compra1:
+      fields: [OrdenDeCompraId]
+
+Rubro:
+  columns:
+    Id:
+      type: integer(4)
+      primary: true
+      unsigned: true
+      notnull: true
+      autoincrement: true
+    Nombre:
+      type: string(255)
+      notnull: true
+    TipoEntidad:
+      type: char(3)
+
+FacturaCompra:
+  columns:
+    Numero:
+      type: string(255)
+      primary: true
+      notnull: true
+    ProveedorId:
+      type: integer(4)
+      unsigned: true
+      primary: true
+      notnull: true
+    TipoIvaId:
+      type: integer(4)
+      primary: true
+      notnull: true      
+    Fecha:
+      type: date
+      notnull: true      
+    Importe:
+      type: decimal(10)
+      scale: 2
+      unsigned: true
+      notnull: true
+    Comentario:
+      type: clob(65535)
+    PendienteDePago:
+      type: char(2)
+      default: SI
+    FechaAnulacion:
+      type: date
+      default: null
+  relations:
+    Proveedor:
+      class: Proveedor
+      local: ProveedorId
+      foreign: Id
+      foreignAlias: FacturasCompra
+    TipoIva:
+      class: TipoIva
+      local: TipoIvaId
+      foreign: Id
+      foreignAlias: FacturasCompra
+  indexes:
+    fk_FacturaCompra_proveedor:
+      fields: [ProveedorId]
+    fk_FacturaCompra_TipoIva1:
+      fields: [TipoIvaId]
+      
+FacturaCompraOrdenDeCompra:
+  columns:
+    FacturaNumero:
+      type: string(255)
+      primary: true
+      notnull: true
+    ProveedorId:
+      type: integer(4)
+      unsigned: true
+      primary: true
+      notnull: true
+    TipoIvaId:
+      type: integer(4)
+      primary: true
+      notnull: true
+    OrdenDeCompraId:
+      type: integer(4)
+      primary: true
+      unsigned: true
+      notnull: true
+    ImporteLiquidado:
+      type: decimal(10)
+      scale: 2
+      notnull: true
+    FechaGrabacion:
+      type: timestamp
+      notnull: true
+  relations:
+    OrdenDeCompra:
+      class: OrdenDeCompra
+      local: OrdenDeCompraId
+      foreign: Id
+      foreignAlias: FacturaCompraOrdenesDeCompras
+  indexes:
+    fk_FacturaCompra_has_orden_de_compra_orden_de_compra:
+      fields: [OrdenDeCompraId]      
+      
+OrdenDePagoFacturaCompra:
+  columns:
+    FacturaNumero:
+      type: string(255)
+      primary: true
+      notnull: true
+    ProveedorId:
+      type: integer(4)
+      unsigned: true
+      primary: true
+      notnull: true
+    TipoIvaId:
+      type: integer(4)
+      primary: true
+      notnull: true
+    OrdenDePagoId:
+      type: integer(4)
+      primary: true
+      unsigned: true
+      notnull: true
+    ImporteLiquidado:
+      type: decimal(10)
+      scale: 2
+      notnull: true
+    FechaGrabacion:
+      type: timestamp
+      notnull: true
+  relations:
+    OrdenDePago:
+      class: OrdenDePago
+      local: OrdenDePagoId
+      foreign: Id
+      foreignAlias: OrdenDePagoFacturasCompra
+  indexes:
+    fk_orden_de_pago_factura_compra:
+      fields: [OrdenDePagoId]            
+      
