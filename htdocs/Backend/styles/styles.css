@@ -1,0 +1,2444 @@
+p { 
+	font-size:11px;
+	color: #6B6B6B;
+	float: left;}
+	
+a { text-decoration: none;
+	font-size:11px;
+	color: #6B6B6B;
+	cursor:pointer;}
+	
+	.mceEditor a  { text-indent: 5px;} 
+
+a:hover {	text-decoration: none;}
+
+h1 {
+	float: left;
+	width: 100%;
+	font-size: 20px;
+	font-weight: normal;
+	color: #6B6B6B;}
+
+h2 {
+	float: left;
+	width: 100%;
+	font-size:12px;
+	font-weight: normal;}
+	
+	h2.noResult { font-size: 16px; color:#CCC; padding: 20px 0;}
+	
+h2 a { float: none; width: auto;}
+
+	
+.bold { font-weight: bold; }
+.hidden { display: none;}
+a.linkPink,
+.pink { color: #DC1D76;}
+
+ul,
+li { list-style: none; }
+
+input,
+select,
+textarea {
+			font-size: 11px; font-family: Arial, sans-serif; border: 1px solid #CFCFD1;}
+			
+textarea { 	
+			font-family: Arial, sans-serif;
+			font-size:11px;
+			color: #4D4D4D;
+			border: 1px solid #CFCFD1;}
+			
+dl,
+dd,
+dt { float: left; width: 100%;}
+
+form,
+fieldset { margin: 0; padding: 0; width: 100%;}
+
+
+/* Header ************************************/
+
+.headerLogo {
+	float: left;
+	width: 48%;
+	height: 65px;}
+	
+.headerLogo img { float: left;}
+.headerLogo h1 { color: #CACACA; width: auto; margin-top: 22px; padding-left: 10px; font-size: 17px;}
+	
+.headerOptions {
+	float: right; width: 100%;margin-bottom: -20px; }
+	
+.headerOptions ul { float: left; width: 100%;}
+	
+.headerOptions li { float: right; width: auto; padding-left: 10px; font-size: 12px; *padding-top: 3px;}
+	
+.headerOptions li a,
+.headerOptions li span { color: #595959; font-size: 12px; padding-right: 5px;}
+	
+.headerOptions li a { padding-top: 2px; float: left;}
+	
+.headerOptions li a:hover {color: #969696; text-decoration: none;}
+	
+.headerOptions li select { width: 80px; color: #969696; font-size: 12px;}
+.headerOptions li select.large { width: 160px;}
+
+.headerOptions li .btLogout {
+	float: left;
+	margin-top: -6px;
+	width:100px;
+	height: 25px;
+	background: url(../images/body/buttons.png) no-repeat;
+	background-position: -74px -27px;
+	color: #fff;
+	text-align: center;
+	font-size: 14px;
+	border:none;
+	cursor: pointer;} 
+	
+	
+/* Menu ************************************/
+
+#Menu { 
+	float: left; 
+	clear: left; 
+	width: 100%;
+	height: 30px;}
+	
+#Menu ul { float: left; width: 100%; *margin-top: 1px;}
+	
+#Menu li { float: left;}
+	
+#Menu li a { 
+	float: left;
+	padding: 0 10px;
+	padding-top: 7px;
+	width: auto;
+	height: 23px;
+	color: #fff;
+	font-size: 14px;
+	border-left: 1px solid #BFBFBF;
+	background: url(../images/body/adminImages.png) 0px -305px repeat-x;}
+	
+#Menu li a.first { border: none; width:35px;}
+#Menu li a:hover,
+#Menu li a.active { background-position: 0px -335px; text-decoration: none;}
+	
+.subMenu { 
+	float: left;
+	_float: none;
+	_display: block;
+	width: 100%;
+	padding: 10px 0 5px 0;
+	background: #F8F8F8;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-radius-bottomleft: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-radius-bottomright: 5px;
+	*margin-top: 4px;
+	_margin-top: 0px;}
+	
+.subMenu li { float: left;}
+	
+.subMenu a {
+		float: left;
+		padding: 0 10px;
+		margin-bottom: 5px;
+		color: #828282;
+		font-size: 13px;}
+		
+.subMenu a:hover {color: #033D8F; text-decoration: none;}
+		
+/* Tabs Home **********************************************/
+
+.tabsHome {
+	float: left;
+	width: 100%;
+	padding-bottom: 8px;
+	background: url(../images/body/indexTabsBottom.png) no-repeat bottom left;}
+	
+.tabsHome h1 { float: left; width: 15%; font-size: 16px;}
+.tabsHome ul { float: left; width: auto;}
+.tabsHome a.linkRight { float: right; font-size: 12px; padding: 5px 0 0 10px;}
+.tabsHome a.linkRight:hover { color: #000;}
+
+.tabsHome li {float: left; width: auto;}
+		
+.tabsHome li a {
+		float: left; 
+		width: auto;
+		height: 26px;
+		padding-left: 5px;
+		padding-right: 10px;
+		background: url(../images/body/adminTabsRight.png) right -26px no-repeat;}
+		
+.tabsHome li a span {
+			float: left; 
+			width: auto;
+			height: 26px;
+			padding-left: 10px;
+			background: url(../images/body/adminImages.png) 0px -525px no-repeat;}
+			
+.tabsHome li a span span {
+			height: 21px;
+			padding: 0 5px;
+			padding-top: 5px;
+			background: url(../images/body/adminImages.png) 0px -497px repeat-x;
+			font-size: 14px;
+			color: #575757;}
+			
+.tabsHome li.ui-tabs-selected a {
+				background-position:  right 0;}
+		
+.tabsHome li.ui-tabs-selected a span {
+			background: url(../images/body/adminImages.png) 0px -581px no-repeat;}
+			
+.tabsHome li.ui-tabs-selected a span span {
+			background: url(../images/body/adminImages.png) 0px -554px no-repeat; color: #fff;}
+			
+.ui-tabs-hide {	display: none;	}
+			
+/* Listado ************************************/
+
+.listado,
+.home{
+	float: left;
+	width: 98%;
+	background: #fff;
+	padding: 7px 1%;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;}
+	
+	.home .listado {
+		padding: 5px 1%;
+		width: 48%;
+		margin-right: -1px;
+		_margin-right: -1%;}
+		
+	.home .listadoLarge {
+		padding: 5px 1%;
+		width: 98%;
+		margin-right: 0px;
+		margin-top: 15px;}
+	
+	.home .listado .titleCont {
+	float: left;
+	width: 85%;}
+	
+	.home .listado .iconAlerts {
+	float: left;
+	width: 52px;
+	height: 49px;
+	background: url(../images/body/iconsEdicion10.png) 0 -764px no-repeat;}
+	
+	.home .listado .iconWorks {
+	float: left;
+	width: 52px;
+	height: 49px;
+	background: url(../images/body/iconsEdicion10.png) 0 -813px no-repeat;}
+	
+	
+.listado h1 { 
+		float: left;
+		clear: left;
+		width: auto;}
+		
+.home .listado h1 { font-size: 16px; color: #3E2780;}
+		
+.listado h1 span { color: #B2B2B2;}
+		
+.listado a.linkSendHome { 
+		float: left;
+		width: auto; 
+		padding-left: 10px;
+		padding-top: 8px;}
+		
+		.listado a.linkSendHomeEdit { 
+		margin-top: 0px;
+		margin-bottom: 10px;
+		padding-left: 0;
+		padding-top: 0;
+		position: relative;
+		z-index: 1;}
+		
+.listado .sectionSelector {
+		float: right;
+		margin-top: 5px;
+		width: 23%;}
+		
+.listado .sectionSelector p { float: left; font-size: 12px; width: auto; padding-right: 15px; margin-top: 2px;}
+		
+.listado .sectionSelector select { font-size: 12px; width: 150px;}
+
+.grayBox { 
+		float: right;
+		width: 325px; 
+		height: 30px;
+		padding-left: 5px;
+		background:  url(../images/body/adminImages.png) 0px -464px no-repeat;}
+		
+.grayBox div { 
+		float: left;
+		width: auto;
+		height: 30px;
+		padding-right: 5px;
+		background: #eee url(../images/body/adminImagesRight.png) right 0 no-repeat;}
+		
+.grayBox span {
+			float: left;
+			padding: 7px;
+			font-size: 12px;
+			color: #595959;
+			width: auto;}
+			
+.grayBox input.search { 
+			float: left;
+			width: 140px;
+			font-size: 12px;
+			padding: 2px;
+			margin-top: 3px;
+			height: 16px;}
+			
+.grayBox div.buttons {
+				background: none;
+				padding-left: 10px;}
+				
+.grayBox div.buttons input { float: left; width: 26px; height: 26px; cursor: pointer; border: none; margin-top: 2px;}
+			
+.grayBox div.buttons input.btPrint { background: url(../images/body/adminImages.png) 0px 0px no-repeat;}
+.grayBox div.buttons input.btExcel { background: url(../images/body/adminImages.png) -26px 0px no-repeat;}
+.grayBox div.buttons input.btPdf { background: url(../images/body/adminImages.png) -52px 0px no-repeat;}
+.grayBox div.buttons input.btCsv { background: url(../images/body/adminImages.png) -78px 0px no-repeat;}
+
+/* Filtros */
+
+.filtersBox,
+.filtersInfoBox {
+	float: left;
+	margin: 15px 0 0 0;
+	width: 95.5%;
+	padding-left: 35px;
+	background: url(../images/body/adminImages.png) no-repeat 10px -1530px;}
+	
+.filtersInfoBox { background: none; padding-left: 0; width:100%; margin-bottom: 15px;}
+	
+	.filtersBox ul,
+	.filtersInfoBox ul {
+		float: left;
+		padding: 0;
+		width: 100%;
+		
+		background: #f2f2f2;}
+		
+	.filtersBox ul li,
+	.filtersInfoBox ul li { 
+	float: left; 
+	width: 14.3%; 
+	padding: 5px 1%; 
+	border-left: 1px dotted #666;
+	min-height: 100px;
+	min-height: auto !important;
+	height: 100px;}
+	
+	.filtersInfoBox ul li { 
+		width: 22%;
+		padding-bottom: 10px;
+		min-height: 50px;
+		min-height: auto !important;
+		height: 50px;}
+	
+	.filtersBox ul li div {
+		float: left;
+		width: 100%;}
+	
+	.filtersBox ul li label {
+		float: left;
+		*float: none;
+		display: block;
+		margin-bottom: 3px;
+		width: 100%;
+		font-size: 12px;}
+		
+	.filtersBox ul li input,
+	.filtersBox ul li select,
+	.filtersBox ul li textarea {
+		float: left;
+		margin-bottom: 3px;
+		padding: 2px;
+		font-size: 12px;
+		width: 100%;}
+		
+		.filtersBox ul li input.check {
+			width: auto;
+			clear: left;
+			margin-right: 5px;
+			*margin-top: -2px;
+			padding: 0;
+			border: none;}
+			
+		.filtersBox ul li input.date {
+			width: 70%;
+			margin-right: 3px;}
+			
+		.filtersBox ul li input.btCalendar {
+			width: 18px;
+			height: 15px;    
+			border:none;
+			background: url(../images/body/iconsEdicion10.png) 0 -411px no-repeat;
+			cursor: pointer;}
+			
+	.filtersBox ul li p {
+		float: left;
+		width: 80%;
+		color: #666;
+		font-size: 12px;}
+		
+	.filtersBox .buttons {
+		float: right;
+		width: auto;}
+		
+		.filtersBox .buttons input.btDark,
+		.filtersBox .buttons input.btGray{
+			float: left;
+			margin-right: 5px;
+			width: 84px;
+			height: 24px;
+			cursor: pointer;
+			border: none;
+			background: url(../images/body/adminImages.png) no-repeat -36px -1530px;
+			font-weight: bold;
+			font-size: 14px;
+			color: #fff;}
+			
+			.filtersBox .buttons input.btGray {background-position: -36px -1578px; padding-left: 20px; margin-right: 0; }
+			
+			.filtersBox .buttons input.btDark:hover { background-position: -36px -1554px;}
+			.filtersBox .buttons input.btGray:hover {background-position: -36px -1602px;}
+			
+	.filtersBox p { float: left; width: 100%; font-size: 13px; color: #595959; margin-bottom: 5px;}
+	.filtersBox p span { color: #033D8F;}
+	
+ /* paginador del listado */
+ 
+ .listPaginador {
+	 float: left;
+	_float: none;
+	_display: block; 
+	width: 100%; 
+	margin-top: 10px;}
+
+ .home .listPaginador { margin-top: 0;}
+ 
+.listPaginador .paginadorOptions,
+ .listPaginador .paginadorOptions li {
+	 float: left;
+	 width: auto;}
+	 
+ .listPaginador .paginadorOptions { width: 400px;}
+	.home .listado .titleCont .listPaginador .paginadorOptions { width: 95%;}
+	.home .listadoLarge .titleCont .listPaginador .paginadorOptions { padding-left: 0px;}
+
+ .listPaginador .paginadorOptions li { padding: 0 5px 0 0 ; position: relative;}
+	 
+.listPaginador .paginadorOptions li span,
+.listPaginador .paginadorOptions li a,
+ .listPaginador .paginadorOptions li input { color: #3E2780; font-size: 11px; background: none; border: none; cursor: pointer;}
+	 
+ .listPaginador .paginadorOptions li .dropDown { 
+	 padding-right: 10px;
+	 height: 10px;
+	 background: url(../images/body/arrows.png) right 4px no-repeat;}
+	 
+ .listPaginador .paginadorOptions li .dropDownBox {
+	 	position: absolute;
+		top: 15px;
+		left: -3px;
+		display: none;
+		background-color: #FFF;
+		padding: 5px; 
+		z-index: 100;
+		border: 1px solid #4d4d4d;}
+		
+.listPaginador .paginadorOptions li .dropDownBox input { display: block;} 
+	 
+.paginadorCant, .paginadorPages,
+.paginadorOptions { margin-top: 2px; float: left;}
+	
+.paginadorCant p,
+.paginadorCant p a {color: #3E2780;}
+	
+.paginadorGoTo { float: left; padding-left: 15px;}
+	
+.paginadorGoTo input.goTo { width: 46px; color:#828282; font-size: 12px; height: 16px; padding: 0 2px; margin: 0;}
+.paginadorGoTo input.btText { background: none; color: #3E2780; font-size: 12px; border: none; cursor: pointer;}
+	
+.paginadorPages {
+		float: right;
+		width: auto;}
+		
+.paginadorPages li { float: left; width: auto; padding: 0 3px; color: #3E2780;}
+		
+.paginadorPages li a {color: #3E2780;}
+.paginadorPages li a.active, .paginadorCant p a.active { font-weight: bold;}
+
+.statsList {
+	float: left;
+	width: 100%;
+	margin-top: 10px;}
+	
+	.statsList li {
+		float: left;
+		padding: 5px;
+		width: 178px;
+		height: 75px;
+		background: url(../images/body/adminImages.png) 0 -1815px no-repeat;}
+
+
+	.statsList li p,
+	.statsList li a { float: left; width: 100%;}
+	
+	.statsList li p { margin-bottom: 7px;}
+	.statsList li a { color: #3E2780;}
+	
+	.statsList li p.big { font-size: 21px; font-weight: bold; margin-bottom: 0;}
+ 
+ /* items del listado */
+ 
+ .list {float: left; width: 100%;margin-top: 10px;}
+
+.editGalery  .list { width: 99%;}
+ 
+ .list .listTop { 
+ 	float: left; 
+	width: 99.5%;
+	height: 25px;
+	padding-right: 5px;
+	background: url(../images/body/adminImagesRight.png) right -32px no-repeat;}
+	
+.list .listTop div { 
+ 	float: left; 
+	width: 99.5%;
+	height: 25px;
+	padding-left: 5px;
+	background: url(../images/body/adminImages.png) 0 -253px no-repeat;}
+	
+.list .listTop div table {
+		float: left; 
+		width: 100%;
+		height: 25px;
+		background: url(../images/body/adminImages.png) 0 -279px repeat-x;
+		 text-align: left;}
+		 
+ .listTop input { border: none;}
+		
+.list .listTop a {color: #4B4B4B; padding-right: 15px; height: 15px; overflow: hidden; float: left;}
+		
+.list .listTop a.orderNone { background: url(../images/body/arrows.png) right -8px no-repeat;}
+.list .listTop a.orderNone:hover { background: url(../images/body/arrows.png) right -27px no-repeat; _background-position: right -8px; }
+.list .listTop a.orderDown { background: url(../images/body/arrows.png) right -27px no-repeat;}
+.list .listTop a.orderUp { background: url(../images/body/arrows.png) right -47px no-repeat;}
+		
+.listItems { float: left; width: 99.5%; padding: 0 0 0 5px; }
+.listItemsScroll { height: 200px; overflow-y: scroll; overflow-x: hidden;}
+	
+.editGalery .listItems { background: #fff;}
+	
+.listItems table { float: left; width: 100%; text-align: left; color: #595959;}
+	
+.listItems table td { height: 30px; color: #666;}
+	
+.listItems table tr.gray { background:#f5f5f5;}
+.editGalery .listItems table tr.gray { background:#f5f5f5;}
+	
+.listItems table tr:hover,
+.listItems table tr.gray:hover { background: #CCCCCC;}
+
+.listItems table tr.noResult:hover { background: #fff;}
+	
+.listItems table tr.galeryTr:hover,
+.listItems table tr.galeryTr { background: #ddd;}
+	
+.listItems table span.active,
+.listItems table span.inactive,
+.listItems table span.disabled,
+.formButtons .info li p span.active,
+.formButtons .info li p span.inactive,
+.formButtons .info li p span.disabled { 
+	height:14px; 
+	padding: 3px 0; 
+	padding-left: 25px; 
+	z-index: 1; 
+	position: relative;}
+	
+.listItems table span.active, 
+.formButtons .info li p span.active { background: url(../images/body/adminImages.png) 0 -30px no-repeat;}
+.listItems table span.inactive, 
+.formButtons .info li p span.inactive { background: url(../images/body/adminImages.png) 0 -51px no-repeat;}
+.listItems table span.disabled, 
+.formButtons .info li p span.disabled { background: url(../images/body/adminImages.png) 0 -71px no-repeat;}
+	
+.listItems input { border: none;}
+.listItems select { float: left; margin-right: 5px; width: 110px; color: #969696; font-size: 11px;}
+	
+.listItems input.btEdit,
+input.btEdit,
+.formBox li .editGalery input.btEdit,
+.lightbox .selectFile input.btEdit {
+		float: left;
+		width: 14px; 
+		height: 14px;
+		background: url(../images/body/adminImages.png) 0 -234px no-repeat;
+		border: none;
+		cursor: pointer;}
+		
+.formBox li .editGalery input.btEdit {
+			padding: 0;
+			padding-left: 18px;
+			width: auto;
+			font-size: 12px;}
+		
+.listItems input.btDelete,
+.formBox li .editGalery input.btDelete,
+.lightbox .selectFile input.btDelete {
+		float: left;
+		padding: 0;
+		width: 14px; 
+		height: 13px;
+		background: url(../images/body/adminImages.png) 0 -215px no-repeat;
+		border: none;
+		cursor: pointer;
+		margin-left: 10px;}
+		
+ td.thumb { text-align: center; }
+
+
+td.thumb img,
+ td.thumb div { 
+ 	max-width: 500px; 
+	_width: auto !important; 
+	_width: 500px;
+	height: auto;
+	padding: 10px;}
+	
+ td.thumb div { margin: 0 auto;}
+	
+ td.thumb div * { 
+	max-width: 500px; 
+	_width: auto !important; 
+	_width: 500px;
+	height: auto;
+	}
+	
+	
+	/* Listado de notas *******************/
+	
+.listItems td .btPrevVersion,
+.listItems td .btVisHomeOn,
+.listItems td .btVisHomeOff {
+		display: block;
+		margin-left: 35px;
+		width: 20px;
+		height: 20px;
+		background: url(../images/body/iconsEdicion10.png) 0 -708px no-repeat;}
+		
+.listItems td .btVisHomeOn {
+		margin-left: 10px;
+		background-position: -0px -730px;}
+		
+.listItems td .btVisHomeOff {
+		margin-left: 10px;
+		background-position: -20px -730px;}
+
+	
+/* Forms Buttons **************************/
+
+.form { float: left; width: 98%; padding: 20px 1%; position: relative;}
+
+#FormsColumn { 
+	float: right;
+	position:absolute;
+	top:20px;
+	right:10px;
+	padding-top: 5px;
+	width: 280px;
+	height: auto;}
+	
+.formsColumnPanel {
+		float: right;
+		width: 100%;
+		margin-bottom: 20px;}
+
+.formButtons {
+	float: left;
+	padding-top: 5px;
+	width: 100%;
+	height: auto;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;}
+	
+
+.formButtons .info {
+		float: left;
+		width: 270px;
+		padding: 5px;}
+		
+.formButtonsMin .info ul { display: none;}
+		
+.formButtons .info .btMinimize {
+			float: right;
+			width: 16px;
+			height: 16px;
+			cursor: pointer;
+			background: #fff url(../images/body/adminImages.png) 0 -751px no-repeat;
+			border: none;}
+			
+.formButtons .info .btMaximize {background-position: 0 -769px; }
+			
+.formButtons .info .btBlock {background-position: -20px -751px; margin-right: 5px; }
+			
+.formButtons .info ul {float: left; width: 90%; position: relative; padding-left: 2%; }
+		
+		
+.formButtons .info li { float: left; width: 100%; padding: 3px 0; }
+#HomeEditor .formButtons .info ul.formSimple li {padding: 5px 0; }
+
+.formButtons .info li p { float: left; width: auto;  }
+
+.formButtons .info li input.homeName { font-size: 14px; float: left; padding: 2px; margin-top:-3px; margin-left: 10px; letter-spacing: 1px;}
+		
+.formButtonsComments .info li p { margin-top: 10px; float: left;}
+.formButtonsComments .info li p.large { margin-top: 0px;}
+		
+.formButtons .info li.grey p { color: #999;}
+		
+.formButtons .info li p a { color: #3E2780;}
+		
+.formButtonsComments .info li a.right { float: right; width: auto; color: #3E2780; margin-top: 10px;}
+		
+.formButtons .info li p span { padding-left: 5px;}
+		
+	.formButtons .info li p span.draft,
+	.formButtons .info li p span.toAprove,
+	.formButtons .info li p span.rejected,
+	.formButtons .info li p span.aproved,
+	.formButtons .info li p span.toPublish,
+	.formButtons .info li p span.published,
+	.formButtons .info li p span.publicAccess,
+	.formButtons .info li p span.registeredAccess,
+	.formButtons .info li p span.plusAccess,
+	.formButtons .info li p span.freeComments,
+	.formButtons .info li p span.reviewComments,
+	.formButtons .info li p span.reportedComments,
+	.listItems span.draft,
+	.listItems span.toAprove,
+	.listItems span.rejected,
+	.listItems span.aproved,
+	.listItems span.toPublish,
+	.listItems span.published,
+	.listItems span.publicAccess,
+	.listItems span.registeredAccess,
+	.listItems span.plusAccess,
+	.listItems span.freeComments,
+	.listItems span.reviewComments,
+	.listItems span.reportedComments,
+	span.freeComments,
+	span.reviewComments,
+span.reportedComments{
+			padding: 4px 0;
+			padding-left: 25px;
+			height: 22px;
+			background: url(../images/body/iconsEdicion10.png) 0 -490px no-repeat;
+			position: relative;
+			z-index: 1;}
+			
+	 .formButtons .info li p span.toAprove,
+ .listItems span.toAprove{background-position: 0 -516px;}
+	 .formButtons .info li p span.rejected,
+ .listItems span.rejected{background-position: 0 -883px;}
+	 .formButtons .info li p span.aproved,
+ .listItems span.aproved {background-position: 0 -567px;}
+	 .formButtons .info li p span.toPublish,
+ .listItems span.toPublish{background-position: 0 -591px;}
+	 .formButtons .info li p span.published,
+ .listItems span.published {background-position: 0 -908px;}
+	 .formButtons .info li p span.publicAccess,
+ .listItems span.publicAccess {background-position: 0 -639px;}
+	 .formButtons .info li p span.registeredAccess,
+ .listItems span.registeredAccess {background-position: 0 -659px;}
+	 .formButtons .info li p span.plusAccess,
+ .listItems span.plusAccess {background-position: 0 -682px;}
+	 .formButtons .info li p span.freeComments,
+	 p span.freeComments,
+ .listItems span.freeComments {background-position: 0 -428px; padding-left: 20px;}
+ .listItems span.freeComments { padding-left: 25px;}
+	 .formButtons .info li p span.reviewComments,
+	 span.reviewComments,
+ .listItems span.reviewComments {background-position: 0 -468px;}
+		 
+ .listItems span.reportedComments,
+	 span.reportedComments {background-position: 0 -448px;}
+		 
+ .formButtons .info li input.txtCalendar { 
+			width: 60px; 
+			font-size: 11px; 
+			color: #595959; 
+			font-weight: bold; 
+			background: #fff; 
+			border:none;}
+			
+.formButtons .info li input.btCalendar,
+.editFile ul li input.btCalendar{ 
+			width: 18px;
+			height: 15px;    
+			border:none;
+			background: url(../images/body/iconsEdicion10.png) 0 -411px no-repeat;
+			cursor: pointer;}
+			
+		
+input.btArrow { 
+		float: left; 
+		margin: 2px  0 0 5px;
+		width: 10px;
+		height: 10px;
+		border: none;
+		cursor: pointer;
+		background: #fff url(../images/body/arrows.png) 0 0 no-repeat;
+		}
+		
+.formButtons .info .dropDownBox { 
+			position: absolute; 
+			top: 30px; 
+			left: 45px; 
+			width: 150px; 
+			padding: 5px; 
+			z-index: 100;
+			background: #fff;
+			border: 1px solid #4d4d4d;
+			display: none;}
+			
+			.formButtons .info .dropDownBoxAccess {
+				width: 130px;
+				top: 135px;
+				left: 120px;}
+			.formButtons .info .dropDownBoxComments {
+				width: 130px;
+				top: 155px;
+				left: 80px;}
+			
+.formButtons .info .dropDownGrey { background: #F3F3F3; width: 90%; top: 50px;	 left: 0;}
+		
+.formButtons .info li .dropDownBox input { 
+			border: none; 
+			background: none;
+			float: left; 
+			clear: left;
+			padding: 2px 0;
+			cursor: pointer; 
+			color: #666;
+			text-align: left;
+			width: 100%;}
+		
+.formButtons .info li .dropDownBox input:hover { color: #000; background: #eee;}
+		
+.formButtons .info .dropDownGrey a { margin: 0 10px;}
+.formButtons .info .dropDownGrey p { margin: 3px 0;}
+		
+.formButtons .buttons,
+.lightbox .buttons,
+.formBox li .editGalery .selectedGallery .buttons {
+		float: left;
+		border: 1px solid #dedede;
+		width: 258px;
+		padding: 10px;
+		background: #F3F3F3;}
+		
+	.lightbox .buttons,
+.formBox li .editGalery .selectedGallery .buttons { width: 97%;}
+		
+	.formButtons .buttons select,
+	.formButtons .buttons textarea,
+.formButtonsComments .info li textarea {
+			float: left;
+			padding: 2px;
+			font-size: 14px;
+			width: 175px;}
+			
+.formButtons .buttons textarea,
+.formButtonsComments .info li textarea { width: 100%; font-size: 12px; height: 100px;}
+			
+.formButtonsComments .info li textarea { margin-top: 10px; width: 98%;}
+		
+	.formButtons .buttons input.btGray,
+	.lightbox .buttons input.btGray,
+	.formBox li .editGalery .selectedGallery input.btGray,
+.headerOptions input.btGray {
+			float: left;
+			width: 98px;
+			height: 26px;
+			background: url(../images/body/adminImages.png) 0 -100px no-repeat;
+			color: #fff;
+			font-size: 14px;
+			text-align: center;
+			cursor:pointer;
+			border: none;}
+			
+.headerOptions input.btGray {
+				width: 112px;
+				height: 22px;
+				padding-bottom: 2px;
+				background-position: 0 -1498px;
+				font-size: 13px;
+				font-weight: bold;}
+			
+.formButtons .buttons input.btGray:hover,
+.lightbox .buttons input.btGray:hover,
+.formBox li .editGalery .selectedGallery input.btGray:hover {background-position: 0 -126px;}
+			
+.lightbox .buttons input.btGray,
+.formBox li .editGalery .selectedGallery input.btGray,
+{ margin-top: 2px; margin-left: 10px;}
+			
+	input.btDark,
+	.formBox li .editFile input.btDark,
+	.formButtons .buttons input.btDark,
+	.formBox li .editGalery input.btDark,
+	.formButtons .buttons input.btDarkSmall,
+	.formBox li .editGalery input.btDarkSmall,
+	.formButtons .buttons input.btRed,
+	.lightbox .loadFile input.btDarkSmall,
+	.lightbox .loadFile input.btDark,
+	.lightbox .selectFile input.btDark,
+	.lightbox .buttons input.btDark{
+			float: left;
+			margin-left: 10px;
+			padding-bottom: 2px;
+			width: 122px;
+			height: 26px;
+			background: url(../images/body/adminImages.png) 0 -152px no-repeat;
+			color: #fff;
+			font-size: 14px;
+			text-align: center;
+			cursor:pointer;
+			border: none;}
+			
+.formButtons .buttons input.btDarkLeft,
+.lightbox .buttons input.btDark,
+input.btDarkLeft,
+.formBox li .editFile input.btDarkLeft { margin-left: 0;}
+			
+.formButtons .buttons input.btDarkSmall,
+.lightbox .loadFile input.btDarkSmall,
+.lightbox .selectFile input.btDarkSmall{
+				width: 68px;
+				background: url(../images/body/buttons.png) 0 -27px no-repeat;}
+				
+.lightbox .selectFile input.btDark,
+.lightbox .buttons input.btDark { margin-left: 0; margin-top: 5px;}
+			
+.formButtons .buttons input.btDark:hover,
+.formBox li .editGalery input.btDark:hover,
+.lightbox .selectFile input.btDark:hover,
+.lightbox .buttons input.btDark:hover { background-position: 0 -178px;}
+			
+.formButtons .buttons input.btDarkSmall:hover,
+.formBox li .editGalery input.btDarkSmall:hover	,
+.lightbox .loadFile input.btDarkSmall:hover,
+.lightbox .selectFile input.btDarkSmall:hover { background-position: 0 -53px;}
+
+.listado input#btnShowError { margin: 10px 0;}
+.errorText { float: left; clear: left; width: 90%; color: #666;}
+			
+.formButtons .buttons input.btRed {
+				float: right;
+				margin-top: 10px;
+				width: 68px;
+				background: url(../images/body/buttons.png) 0 -79px no-repeat;}
+				
+	.formButtons .buttons input.btRed:hover {background-position: 0 -105px;}
+			
+	.formButtons .buttons input.check,
+.buttons input.check {
+			float: left;
+			clear: left;
+			margin: 10px 0 0 0;
+			margin-right: 5px;
+			border: none;}
+			
+	.formButtons .buttons p,
+.lightbox .buttons p.check {
+			float: left;
+			margin-top: 9px;}
+			
+.formButtons .buttons p.large { width: 100%; margin-bottom: 5px;}
+			
+		
+			
+.formButtons .buttonsTop {
+	float: left;
+	margin-top: 0px;
+	width: 80%;}
+
+.listado .buttonsTop { float: right; margin-top: 5px;}
+
+.formButtons .buttonsTop input,
+.listado .buttonsTop input{
+		float: left;
+		margin-right: 5px;
+		width: 72px;
+		height: 26px;
+		background: url(../images/body/buttons.png) no-repeat;
+		text-align: center;
+		font-size: 14px;
+		border: none;
+		cursor:pointer;
+		color: #555;}
+		
+.formButtons .buttonsTop input:hover,
+.listado .buttonsTop input:hover { color: #000;}
+			
+			
+					
+/* Footer ********************************/
+
+#Footer img,
+#Footer span { 
+	float: left;
+	padding-right: 15px;
+	color: #9B9B9B;}
+	
+#Footer span { margin-top: 12px;}
+	
+#Footer a,
+a.ids { float: right; margin-top: 0px;}
+
+
+/* login Box Admin */
+
+.loginBox {
+	width: 80%;
+	margin: 100px auto;}
+	
+.loginBox .contLeft {
+		float: left;
+		width: 35%;}
+		
+.loginBox .contLeft h1 { margin-top: 15px; color: #999; height: 90px; display: block;}
+		.loginBox .contLeft a { float:left; clear:left;}
+		
+.loginBox .contRight {
+		float: right;
+		padding: 20px;
+		width: 435px;
+		height: 130px;
+		background: url(../images/body/loginBackBox.png) no-repeat;}
+		
+.loginBox .contRight h2 {
+			float: left;
+			width: 100%;
+			font-size: 20px;
+			color: #CACACA;}
+			
+.loginBox .contRight label {
+			float: left;
+			clear: left;
+			margin-top: 25px;
+			*margin-top: 5px;
+			width: 20%;
+			font-size: 14px;
+			color: #fff;}
+			
+.loginBox .contRight input {
+			float: left;
+			padding: 2px;
+			margin-top: 23px;
+			*margin-top: 3px;
+			width: 40%;
+			font-size: 14px;
+			color: #000;
+			background: #EEEEEE;
+			border: 1px solid #EEEEEE;}
+			
+.loginBox .contRight input.btLogin {
+			float: left;
+			padding: 0;
+			margin-left: 20px;
+			margin-top: 21px;
+			*margin-top: 1px;
+			width: 85px;
+			height: 26px;
+			font-size: 14px;
+			color: #fff;
+			background: url(../images/body/btLogin.png) no-repeat;
+			border: none;
+			cursor: pointer;}
+			
+.loginBox .error {
+			float: right;
+			margin: 0 50px;
+			_margin: 0 25px;
+			margin-top: 15px;
+			width: 390px;
+			padding: 5px 10px;
+			background: #fff;
+			border: 1px dotted #900;
+			font-size: 14px;
+			color: #900;}
+			
+			
+/* Estilos de formularios del perfil */
+
+.contentEditor {
+	float: left;
+	width: 615px;}
+
+/* Perfil del usuario */
+
+.perfilForm {
+	float: left;
+	width: 615px;}
+	
+.normalForm {
+	float: left;
+	width: 615px;}
+	
+.formBox {
+	float: left; 
+	width: 100%;
+	margin-top: 20px;}
+	
+.normalForm .formBox { margin-top: 0;}
+	
+.formBoxMedium {
+		width: 49%;
+		margin-right: -1px;}
+		
+.formBoxMediumVideos { float: right; padding-right: 0;}
+		
+	/* listados */
+		
+.formBox  li { background: #eee; float: left; width: 100%; border-bottom: 1px dotted #7B7B7B;}
+.normalForm .formBox li { border: none;}
+		
+.formBox ul,
+.formBox li { float: left; width: 100%;}
+.formBox ul { margin: 15px 0 0 0;}
+.formBox ul ul { padding: 0 0 15px 0;}
+	
+.normalForm .formBox ul { margin-top: 0;}
+	
+.formBox  li li .contInputs { float: left; width: 50%; margin-right: -1px;}
+.formBox .personalDataBox  li li { padding-bottom: 0;}
+.formBox .personalDataBox  li li .contInputs { float: left; width: 50%; margin-right: -1px;}
+	
+.formBox  li .editFile { background: #fff; border: none; float: left; width: 100%;}
+.normalForm .formBox li .editFile ul { padding-top: 15px;}
+.formBox  li .editFile li { background: #fff; border: none; margin: 5px 0;  }
+.formBox li .editFile li input,
+.formBox li .editFile li textarea,
+.formBox li .editFile li select { padding: 2px 0 2px 2px; font-size: 12px; color: #666;}
+	
+.formBox li p {
+	float: left;
+	padding: 7px 0 7px 2%;
+	width: auto;
+	color: #808080;
+	width: 65%;
+	line-height: 15px;}
+	
+	.formContactView li p,
+	.formContactView li p a {
+		margin: 5px 0;
+		width: 100%;
+		border-top: 1px dotted #900;
+		padding: 5px 0;
+		font-size: 14px;
+		color: #900;}
+		
+	.formContactView li p a {border: none;}
+		
+	.formContactView li p.text {
+		font-size: 12px; color: #000;}
+		
+		.formContactView li p a {font-size: 14px; color: #900;}
+		
+		.formContactView li p a.downloadFile,
+		.formBox li a.downloadFile{
+			margin-left: 30px;
+			padding-left: 20px;
+			color: #360; 
+			font-weight: bold; 
+			background: url(../images/body/iconsEdicion10.png) -16px -863px no-repeat;}
+			
+			.formBox li a.downloadFile { margin-left: 0; font-size: 14px;}
+	
+	
+.formBoxMedium li p {width: 65%;}
+		
+.contentsEditor .formBox li p { width: 65%;}
+	
+.formBox .buttons { 
+		float: left; 
+		padding: 10px 0;
+		margin-top: -1px;
+		width: 100%; 
+		background: #fff; 
+		border-top: 1px dotted #7B7B7B;
+		border-bottom: 1px solid #fff; 
+		margin-bottom:-1px;
+		position: relative;
+		z-index: 1;}
+		 
+ .formBox  .editFile .buttons { border-top: none; padding-top: 0;}
+
+ .formBox  .editFile h1 .buttons { float: right; width: 30%;}
+
+	 .formBox  .editFile h1 .buttons input { float: right;}
+		 
+.formBox a.noData {
+		float: left;
+		display: block;
+		color: #C2C2C2;
+		padding: 10px;
+		font-size: 20px;
+		width: 60%;}
+		
+.formBox .personalDataBox a.noData { padding: 5px 0; width: 100%; font-size: 16px; }
+		
+	/* titulos */
+	
+.formBox h1 {
+		color: #C2C2C2;
+		padding-left: 0;
+		padding-bottom: 5px;
+		font-size: 24px;
+		float: left;
+		width: 100%;
+		border-bottom: 1px dotted #C2C2C2;}
+		
+.formBox h1 span {
+			display: block;
+			font-size: 11px;
+			color: #808080;}
+			
+.formBox li h1 { margin: 10px 0 0 0;}
+		
+.normalForm .formBox li h1 { margin-top: 0;}
+		
+.formBox .othersTitle {border-bottom: 1px dotted #C2C2C2; width: 96%; padding: 10px 2%;}
+			
+/* galerias */
+
+.lightbox .selectFile img#mediaLoader { float: right; margin-top: -10px; margin-right:35px;}
+		
+.formBox .photoBox,
+.lightbox .selectFile .filesContainer .photoBox,
+.formBox li .editGalery .selectedGallery .filesContainer .photoBox {
+		float: left;
+		margin: 5px;
+		padding: 5px 10px;
+		padding-bottom: 0;
+		width: 120px;
+		background: #fff;
+		position: relative;
+		-moz-border-radius: 5px;}
+		
+		.formBox .photoBox:hover,
+	.lightbox .selectFile .filesContainer .photoBox:hover,
+	.formBox li .editGalery .selectedGallery .filesContainer .photoBox:hover,
+	.formBox .photoBoxActive,
+	.lightbox .selectFile .filesContainer .photoBoxActive,
+	.formBox li .editGalery .selectedGallery .filesContainer .photoBoxActive{ background: #eee;}
+		
+.formBox li .editGalery .selectedGallery .filesContainer .photoBox { margin-right:15px}
+
+	.lightbox .selectFile .filesContainer .videoBox {
+		width: 45%;
+		margin: 0 15px 5px 0;
+		height: auto;}
+		
+.formBox .photoBox span,
+.lightbox .selectFile .filesContainer .photoBox span,
+.formBox li .editGalery .selectedGallery .filesContainer .photoBox span { 
+		float: left;
+		margin: 3px 0;
+		width: 100%;
+		height: 15px;
+		overflow: hidden;
+		color:#696969;}
+		
+		.lightbox .selectFile .filesContainer .videoBox span { height: 30px; width: 65%;}
+		.lightbox .selectFile .filesContainer .videoBox input.btDarkSmall { clear: none; float:right;}
+		
+.photoBox div.photo { width:100%; height: 90px; overflow: hidden; float: left;}
+
+	.photoBox div.photo * { width: 100%;}
+	
+	.selectFile .photoBox input.btSelect {
+		float: right;
+		position: absolute;
+		top: 10px;
+		right: 15px;
+		width: 20px;
+		height: 20px;
+		cursor: pointer;
+		background: url(../images/body/btSelect.png) no-repeat;
+		border: none;
+		padding: 0;
+		margin: 0;
+		display: none;}
+		
+	.selectFile .photoBox input.btPlay {
+		float: right;
+		position: absolute;
+		top: 10px;
+		right: 40px;
+		width: 20px;
+		height: 20px;
+		cursor: pointer;
+		background: url(../images/body/btPlay.png) no-repeat;
+		border: none;
+		padding: 0;
+		margin: 0;
+		display: none;}
+		
+	.selectFile .photoBox input.btDelete {
+		float: right;
+		position: absolute;
+		top: 10px;
+		right: 15px;
+		width: 20px;
+		height: 20px;
+		cursor: pointer;
+		background: url(../images/body/btRemove.png) no-repeat;
+		border: none;
+		padding: 0;
+		margin: 0;}
+		
+		.selectFile .photoBox:hover input.btSelect,
+		.selectFile .photoBox:hover input.btPlay,
+		.selectFile .photoBoxActive input.btPlay{ display: block;}
+
+		
+.lightbox .selectFile .tabsSelector {
+	float: left;
+	margin-top: -15px;
+	width: 100%;
+	border-bottom: 1px solid #666;}
+	
+	.lightbox .selectFile .tabsSelector .cont {
+		float: right;
+		width: 55%;}
+		
+	.lightbox .selectFile .tabsSelector .cont a {
+		float: left;
+		margin-right: 10px;
+		border: 1px solid #999;
+		border-bottom: none;
+		padding: 5px 10px;
+		font-weight: bold;
+		color: #999;
+		font-size: 12px;
+		background: #fff;}
+		
+		.lightbox .selectFile .tabsSelector .cont a.active,
+		.lightbox .selectFile .tabsSelector .cont a:hover{
+			color: #333;
+			border-color: #333;
+			border-bottom: 1px solid #fff;
+			margin-bottom: -1px;
+			position: relative;
+			z-index:1;}
+			
+			.lightbox .selectFile .tabsSelector .cont a:hover { border-bottom: none;}
+			.lightbox .selectFile .tabsSelector .cont a.active:hover {border-bottom: 1px solid #fff;}
+			
+			.lightbox .selectFile .buttonsCont { position: relative; z-index: 1;}
+			
+/* audios */
+
+.formBox .filesContainerAudios .photoBox img { display: none;}
+
+.formBox .filesContainerAudios .photoBox span, 
+.formBox li .editGalery .selectedGallery .filesContainerAudios .photoBox span {
+	width: 80%;}
+
+.formBox .filesContainerAudios .photoBox,
+.lightbox .selectFile .filesContainerAudios .photoBox,
+.formBox li .editGalery .selectedGallery .filesContainerAudios .photoBox {
+		float: left;
+		margin: 3px 0;
+		padding: 2px 1%;
+		width: 96%;
+		border: 1px solid #666;
+		-moz-border-radius: 5px;}
+		
+.selectFile .filesContainerAudios .photoBox input.btSelect,
+.selectFile .filesContainerAudios .photoBox input.btPlay,
+.selectFile .filesContainerAudios .photoBox input.btDelete {
+		top: 3px;
+		right: 5px;}
+		
+		.selectFile .filesContainerAudios .photoBox input.btPlay { right: 30px;}
+		
+	
+
+		
+/* botones */
+
+.formBox  .buttons .btPreview {
+	float: left;
+	width: 98px;
+	height: 26px;
+	text-align: center;
+	background: url(../images/body/iconsEdicion10.png) 0 -560px no-repeat;
+	border: none;
+	cursor: pointer;
+	font-size: 14px;
+	color: #fff;}
+	
+.formBox  .buttons .btPreview:hover { background-position: 0 -586px;}
+	
+.formBox  .buttons .btSave {
+	float: left;
+	margin-left: 10px;
+	width: 136px;
+	height: 26px;
+	text-align: center;
+	background: url(../images/body/iconsEdicion10.png) 0 -612px no-repeat;
+	border: none;
+	cursor: pointer;
+	font-size: 14px;
+	color: #fff;}
+	
+.formBox  .buttons .btSave:hover { background-position: 0 -638px;}
+	
+.formBox  .buttons .btAdd,
+.formBox  .buttons .btClose,
+.formBox .btAdd,
+.formBox .btClose{
+	float: right;
+	padding: 0;
+	padding-left: 23px;
+	padding-right: 0;
+	width: auto;
+	overflow: visible;
+	height: 20px;
+	text-align: left;
+	background: url(../images/body/iconsEdicion10.png) 0 -310px no-repeat;
+	border: none;
+	cursor: pointer;
+	font-size: 12px;
+	color: #888;}
+	
+	.formBox  .buttons .btClose,
+	.formBox .btClose {  background-position: 0 -879px;}
+	
+.formBox  .buttons .btAdd:hover,
+.formBox  .buttons .btClose:hover,
+.formBox .btAdd:hover,
+.formBox .btClose:hover { color: #000;}
+	
+.formBox h1 .btAdd { margin-top: 5px; *margin-top: -23px; }
+	
+.formBoxMedium  .buttons .btAdd { margin-top: 0;}
+	
+.formBox  .buttons a.blue { font-size: 12px; color: #3E2780; width: auto; float: left;}
+
+	
+.formBox p.txt strong {display: block;}
+		
+input.btModify,
+.formBox li .editGalery input.btModify,
+.lightbox .selectFile .photoBox input.btModify {
+	float: left;
+	padding:0;
+	padding-left: 23px;
+	margin-top: 3px;
+	width: auto;
+	height: 20px;
+	background: url(../images/body/iconsEdicion10.png) 0 3px no-repeat;
+	border: none;
+	color: #666;
+	cursor: pointer;
+	text-align: left;
+	overflow: visible;
+	font-size: 11px;}
+	
+input.btModify:hover,
+.lightbox .selectFile .photoBox input.btModify:hover { color: #000;}
+	
+input.btView {
+	float: left;
+	padding:0;
+	padding-left: 23px;
+	padding-right: 10px;
+	margin-top: 3px;
+	width: auto;
+	height: 20px;
+	background: url(../images/body/iconsEdicion10.png) 0 -38px no-repeat;
+	border: none;
+	color: #666;
+	cursor: pointer;
+	text-align: left;
+	overflow: visible;}
+	
+input.btView:hover { color: #000;}
+	
+input.btDelete,
+.formBox li .editGalery input.btDelete,
+.lightbox .selectFile .photoBox .photoOptions input.btDelete,
+.formBox .buttonsPoll input.delete{
+	float: right;
+	margin-top: 7px;
+	width: 18px;
+	height: 14px;
+	background: url(../images/body/iconsEdicion10.png) 0 -20px no-repeat;
+	border: none;
+	color: #666;
+	cursor: pointer;}
+	
+.formBox  li input.btDelete { margin-right: 2%;}
+	
+.formBox li .editGalery input.btDelete { margin: 0; margin-top: 7px; margin-right: 10px;}
+	
+.formBox li .editGalery .imagesList input.btDelete { margin-right: 0; margin-top: 7px;}
+	
+.listItems input.btDelete { margin-top: 0;}
+
+
+	
+		
+/* personal data */
+			
+.formBox .personalDataBox {
+			float: right;
+			margin-top: 15px;
+			width: 78%;}
+			
+.formBox .personalDataBox li { 
+			float: left;
+			width: 93%;
+			padding-bottom: 15px;
+			background: none;
+			border: none;}
+			
+.formBox .personalDataBox li li { width: 100%;}
+.formBox .personalDataBox li.buttons { border-top: 1px dotted #C2C2C2; width: 100%;}
+			
+.formBox .personalDataBox li p {
+				float: left;
+				margin: 2px 0;
+				padding: 0;
+				width: 100%;
+				font-size: 12px;
+				color: #666;}
+				
+	.formBox .personalDataBox li p.big { font-size: 14px;}
+	.formBox .personalDataBox li p.gray { color: #858585;}
+			
+.iconPhoto {background: url(../images/body/iconsEdicion10.png) 0 -65px no-repeat; padding-left: 20%; width: 80%; float: left;}
+.iconPhotos {background: url(../images/body/iconsEdicion10.png) 0 -120px no-repeat; padding-left: 20%; width: 80%; float: left;}
+.iconVideo {background: url(../images/body/iconsEdicion10.png) 0 -178px no-repeat; padding-left: 20%; width: 80%; float: left;}
+.iconAudio {background: url(../images/body/iconsEdicion10.png) 0 -236px no-repeat; padding-left: 20%; width: 80%; float: left;}
+			
+				
+.formBox .editFile label {
+	float: left;
+	margin-top: 3px;
+	font-size: 12px;
+	width: 140px;
+	color: #666;}
+	
+	/*	content group */
+	#positionShow li label{	width:100%;	font-weight: bold;	}
+	
+.formBox .personalDataBox li .editFile label { width: 100px;}
+	
+.formBox .editFile label.short,
+.formBox .personalDataBox li .editFile label.short { width: auto; padding-right: 15px;}
+	
+.formBox .editFile .clearleft { clear: left; margin-top: 10px; float: left; width: 100%;}
+	
+.formBox .editFile input.inputFile { width: 100%;}
+.editFile a.linkFile { margin: 3px 0; float: left; width: 100%;}
+
+.formBox .editFile .imagesForm label { width: 30%; margin-top: 2px;}
+.formBox .editFile .imagesForm input,
+.formBox .editFile .imagesForm textarea { width: 68%; _width: 67%; }
+
+input.error, 
+select.error, 
+textarea.error {background-color: #FFEDE6; border: 1px dotted #a30000;}
+
+.formBox label.error,
+label.error{
+	float: left;
+	margin: 5px 0;
+	width: 93%;
+	padding: 5px 2%;
+	background: #fff;	
+	color: #A30000;
+	font-size: 12px;	}
+
+.formBox label .message, .message,
+.formBox li p.message {
+	float: left;
+	margin: 5px 0;
+	width: 96%;
+	padding: 5px 2%;
+	background: #fff;	
+	color: #360;
+	border: 1px dotted #360;
+	font-size: 12px;	}
+
+#errorContainer,
+.formBox .personalDataBox li .editFile label.error,
+p.error,
+.formBox li .editGalery .selectedGallery .buttons p.error,
+.formBox .editFile label.error,
+.contentTitles label.error {
+	float: left;
+	margin: 5px 0;
+	width: 95.5%;
+	padding: 5px 2%;
+	background: #fff;
+	border: 1px dotted #A30000;
+	color: #A30000;
+	font-size: 12px;}
+
+.formBox .personalDataBox li .editFile label.success,
+p.success,
+.formBox li .editGalery .selectedGallery .buttons p.success,
+.formBox .editFile label.success {
+	float: left;
+	margin: 5px 0;
+	width: 95.5%;
+	padding: 5px 2%;
+	background: #fff;	
+	color: #0c8009;
+	border: 1px dotted #0c8009;
+	font-size: 12px;
+	}	
+
+
+.formBoxMedium  label.error,
+.formBox .editFile .imagesForm label.error { width: 95%;}
+.formBox  .contInputs label.error { width: 91%;}
+
+	/* datos academicos */
+	
+.formBox li p strong { color:#454545; font-weight: normal; }
+	
+.formBox li .editFile input, 
+.formBox li .editFile select { width: 150px; float: left;}
+
+/* agregado para los campos de texto mas largos */
+.formBox li .editFile input.longText { width:250px; }
+		
+.formBox li .editFile input { padding: 2px 0 2px 2px; font-size: 12px; color: #666;}
+ .formBox  .editFile h1 .buttons input.btDelete { width: auto; padding-left: 20px; padding-top: 0px; *margin-top: -20px; position: relative; z-index: 1; overflow: visible;}
+	
+.formBox li .editFile textarea { width: 455px;}
+.formBox li .editFile textarea.mainText { height: 150px;}
+.formBox li .editFile input.short { width: 30px; margin-right: 20px;}
+.formBox li .editFile .large { width: 74%;}
+.formBox li .editFile input.redesSociales { width: 51.5%; width: 49%;}
+.formBox li .editFile select.short,
+.formBox .personalDataBox li .editFile select.short { width: 65px; margin-right: 6px;}
+.formBox li .editFile select.shortYear,
+.formBox .personalDataBox li .editFile select.shortYear{ width: 80px; margin-right: 15px;}
+	
+.formBox .personalDataBox li .editFile .contInputs input { width: 115px;}
+.formBox .personalDataBox li .editFile input { width: 76%;}
+.formBox .personalDataBox li .editFile select { width: 120px;}
+	
+.formBox .personalDataBox li .editFile input.name { width: 67%;}
+.formBox .personalDataBox li .editFile input.direccion { width: 69%;}
+.formBox .personalDataBox li .editFile input.postal { width: 25%;}
+.formBox .personalDataBox li .editFile input.short { width: 10%;}
+.formBox .personalDataBox li .editFile input.telephone { width: 60.5%;}
+.formBox .personalDataBox li .editFile input.mail { width: 72%;}
+.formBox .personalDataBox li .editFile .country { width: 40%;}
+	
+.formBox li .editFile input.check,
+.formBox .personalDataBox li .editFile input.check { width: auto; padding: 0; margin-right: 6px; margin-top: 3px; border: none;}
+	
+.formBox li .editFile p.info {
+		float: left;
+		margin-top: 3px;
+		width: 95%;
+		padding: 0;
+		padding-left: 4%;
+		background: url(../images/body/iconsEdicion10.png) 0 -355px no-repeat;}
+		
+.formBox li .editFile .contInputs p.info {padding-left: 8%; width: 91%;}
+		
+	
+/* Editor de Contenidos */
+
+	
+
+/* Titulos principales */
+
+.contentTitles { float: left; clear: left; width: 90%;}
+
+.contentTitles label {
+	display: block;
+	color: #033d8f;
+	font-size: 14px;
+	padding: 10px 0 5px 0;}
+	
+	.contentTitles label.top { margin-top:5px;	}
+	
+.contentTitles select{
+	display: block;
+	width: 98%;
+	margin-bottom: 10px;
+	font-size: 14px;
+	color: #808080;
+	padding: 5px;} 
+	
+	.contentTitles select.selectLarge { width:99%;}
+	
+.contentTitles input{
+	display: block;
+	width: 98%;
+	margin-bottom: 10px;
+	font-size: 18px;
+	color: #808080;
+	padding: 5px;} 
+	
+	
+.contentTitles input.inputBig {
+		font-size: 24px;
+		color: #333;}
+		
+.contentTitles input.inputBlack {
+		color: #333;}
+		
+.contentTitles .check {
+	float: left;
+	width: auto;}
+	
+	.contentTitles input.check { margin-top: 13px; margin-top /*\**/: 7px\9; border: none;}
+	.contentTitles label.check { padding-left: 5px; padding-right: 10px;}
+		
+.contentTitles textarea {
+	display: block;
+	padding: 10px 20px 10px 10px;
+	width: 580px;
+	margin-bottom: 10px;
+	font-size: 14px;
+	color: #333;
+	height: 50px;
+	line-height: 18px;}
+	
+	.contentTitles textarea.mainText { height:150px;}
+	
+/* idiomas */
+
+.contLanguage {
+		display: block;
+		width: 100%;
+		float:left;
+		*margin-bottom: 25px;
+		_margin-bottom: 0;}
+		
+		.contLanguage input,
+		.contLanguage select,
+		.contLanguage textarea { width:92%; float:left; margin-right:5px; }
+		.contLanguage textarea { width:89%;}
+		.contentTitlesShort .contLanguage textarea { width:74%;}
+	
+		.contLanguage  input.btLanguage {
+			width: 30px;
+			height: 30px;
+			padding: 0;
+			margin:0;
+			cursor: pointer;
+			background: url(../images/body/buttons.png) no-repeat;
+			background-position: -74px -81px;
+			border: none;
+			float:left;}
+			
+			.languageItems { 
+				float:left;
+				width:96%;
+				padding: 15px 2% 5px 2%;
+				margin: 5px 0 20px 0; 
+				border: 1px solid #ddd;
+				-moz-border-radius: 5px;
+				-webkit-border-radius: 5px;}
+				
+				.languageItems label { width:90%; float:left;}
+				.languageItems input,
+				.languageItems select,
+				.languageItems textarea{ width:94%; float:left;}
+				.languageItems textarea { width:90%;}
+				.contentTitlesShort .contLanguage .languageItems textarea { width:88%;}
+				
+/* forms */
+	
+.contentEditor .formBox .title h1 span { width: auto; width: 55%; display: block;}
+
+.contentEditor .formBox .title h1 { width: 100%; position: relative;}
+
+.contentEditor .formBox .title {
+	float: left;
+	width: 90%;
+	padding-left: 10%;}
+
+.contentEditor .formBox .title h1 .buttons {
+	float: right; 
+	width: 44%; 
+	margin-top: -25px; 
+	padding: 0; 
+	*margin-top: 0px; 
+	_margin-top: -25px; 
+	position: relative; 
+	z-index: 1;
+	border: none;}
+
+.contentEditor .formBox .title h1 .btAdd { margin-top: 0; margin-left: 10px; clear: none; position: absolute; right:0; bottom:5px;}
+
+.formBox li .editGalery .inputsCont {
+		float: left;
+		padding: 5px 2%;
+		width: 96%;
+		background: #eee;
+		border-top: 2px solid #fff;}
+		
+.formBox li .editGalery .first { border-top: none;}
+		
+	
+.formBox li .editGalery label {
+		float: left;
+		width: 30%;
+		font-size: 18px; color: #3E2780;
+		margin-top: 3px;}
+		
+.formBox li .editGalery .title label { margin-top: 0;}
+		
+.formBox li .editGalery p.titleInterno,
+.lightbox .selectFile p.titleInterno,
+.formBox li .editGalery .selectedGallery .txtInterno {font-size: 14px; color: #3E2780; padding: 0; margin: 10px 0; width: 80%;}
+.formBox li .editGalery .selectedGallery .txtInterno { margin-top: 0;}
+.formBox li .editGalery p.txtInterno,
+.lightbox .selectFile .txtInterno,
+.formBox li .editGalery .selectedGallery .txtInterno {font-size: 12px; color: #333; padding: 0; width: 80%; padding-bottom: 15px;}
+		
+.lightbox .selectFile .txtInterno { padding: 2px;}
+		
+.formBox li .editGalery input,
+.formBox li .editGalery input.fileTitle,
+.formBox li .editGalery input.fileEpi,
+.formBox li .editGalery select.selCategory { width: 40%; margin-top: 2px; padding: 3px; font-size: 14px; float: left;}
+
+.formBox li .editGalery input.fileEpi { margin-top: 5px;}
+	
+.formBox li .editGalery input.check { width: auto; padding: 0; margin-top: 0px;}
+	
+.formBox li .editGalery select.selCategory,
+.formBox li .editGalery .selectedGallery input.fileTitle,
+.formBox li .editGalery .selectedGallery input.fileEpi{
+		margin-right: 15px;
+		padding: 2px;
+		border: 1px solid #ddd;}
+		
+.formBox li .editGalery .selectedGallery input.btDark { }
+.formBox li .editGalery .selectedGallery .buttons input.btDark { margin-right: 5px;}
+		
+.formBox li .editGalery .selectedGallery input.btDelete {
+			margin: 0;
+			float: right;
+			padding: 0;
+			margin-top: 7px;
+			}
+		
+.formBox li .editGalery .selectedGallery { float: left; width: 96%; padding: 10px 2%; margin: 10px 0; background: #fff;}
+	
+.formBox li .editGalery .selectedGallery .contInputs { float: left; width: 100%;}
+	
+.formBox li .editGalery .selectedGallery p { padding-left: 0;}
+	
+.formBox li .editGalery .selectedGallery .filesContainer {
+		float: left;
+		width: 100%;
+		overflow-y: scroll;
+		height: 210px;
+		margin: 10px 0;}
+	
+.editGalery .inputsCont .title {
+	float: left; 
+	width: 100%;
+	padding: 0;
+	margin-top: 5px;}
+	
+.editGalery .inputsCont .title p {
+		float: left;
+		padding: 0;
+		margin-top: 3px;
+		width: 8%;
+		padding-right: 15px;
+		font-size: 14px;
+		color: #595959;}
+		
+.editGalery .inputsCont .title p.date { width: 12%}
+		
+.formBox li .editGalery .title label { width: 52%;}
+.formBox li .editGalery .title input.btDelete { margin-top: 4px;}
+	
+.formBox li .editGalery .imagesList { float: left; width: 100%; }
+	
+.formBox li .editGalery input.btDelete { margin-top: 2px;}
+	
+.formBox li .editGalery .photoBox { background: #fff; margin-right: 9px; /*height: 175px;*/ padding-bottom: 5px;}
+	
+.lightbox .photoBox {margin-right: 9px; /*height: 175px;*/}
+.lightbox .editGalery .photoBox {margin-right: 9px; /*height: 175px;*/}
+.lightbox .photoBox:hover { background: #bbb;}
+	
+.formBox li .editGalery .photoBoxEmpty,
+.lightbox .selectFile .filesContainer .photoBoxEmpty{ height: 100px;}
+	
+.formBox li .editGalery .photoBox input.photoEmpty ,
+.lightbox .selectFile .filesContainer .photoBox input.photoEmpty {
+		float: left;
+		width: 100%;
+		height: 95px;
+		background: url(../images/body/adminImages.png) 0 -1163px no-repeat;
+		cursor: pointer;}
+		
+.formBox li .editGalery .photoBox input.photoEmpty:hover,
+.lightbox .selectFile .filesContainer .photoBoxEmpty input.photoEmpt:hover{ background-position: -120px -1163px;}
+
+.formBox li .editGalery .filesContainerAudios .photoBox input.photoEmpty ,
+.lightbox .selectFile .filesContainerAudios .photoBox input.photoEmpty { 
+background-color:#f6f6f6; height: 23px; background-position: 5px -1902px;}
+
+
+/* contenido para productos */
+
+.productsEditor,
+.productsEditorContent {
+	float:left;
+	width: 100%;}
+.productsEditor{
+	margin-top: 40px;}
+	
+	.productsEditorContent .formBox { padding-bottom:20px; margin-top:0;}
+	.productsEditorContent .contentTitlesShort { width:47%; padding-right:2%; float:left;}
+	
+	
+	.productsEditor input.check { float:left; margin-top: 7px; _border: none;}
+	.productsEditor h1 { float: left; width: auto; color: #c2c2c2; clear:none; padding-left: 8px;}
+	
+	.productsEditorContent .smallModules { width: 180px; float:left; padding-right: 15px; }
+	.productsEditorContent .mediumModules { width: 320px;}
+	
+	.productsEditorContent .smallModules input { width:100px; float:left; margin-right:10px;}
+	.productsEditorContent .smallModules input.btAdd { margin-top: 5px;}
+	.productsEditorContent .smallModules input.btColor {
+			width: 27px;
+			height: 27px;
+			padding: 0;
+			margin:0;
+			cursor: pointer;
+			background: url(../images/body/buttons.png) no-repeat;
+			background-position: -111px -81px;
+			border: none;
+			float:left;
+			clear:none;}
+			
+			.productsEditorContent .smallModules input.check { width: auto; height: auto; padding: 0; border: 0; margin-top:11px;}
+
+/* seleccionadores */
+
+.contentEditorSelector, .relatedContent { float: left; width: 100%; margin-top: 20px;}
+
+.contentEditorSelector ol, .relatedContent ul {float: left; width: 100%; margin-bottom: 20px; }
+
+.relatedContent ul { background: #f2f2f2; padding-bottom: 10px; }
+.contentEditorSelector li,
+.relatedContent li{
+	float: left; 
+	width: auto; 
+	margin: 5px; 
+	margin-left: 0;
+	padding: 5px 10px;
+	font-size: 16px;
+	color: #666;
+	border: 1px solid #ccc;
+	background: #f2f2f2;
+	cursor: pointer;}
+	
+	.contentEditorSelector #pref li { clear: left; width: 50%;}
+	
+	.contentEditorSelector li:hover,
+	.contentEditorSelector li.selected { border-color: #599725; background-color: #A6C78A; color: #fff;}
+	
+	.contentEditorSelector li:hover {background-color: #599725;}
+
+/*	contenidos relacionados */
+
+.relatedContent li { 
+	border:none; font-size: 11px; }
+	
+	.relatedContent li.large {	
+		width: 75%;	padding-right: 10%; }
+		
+		.relatedContent li.large input { width:75%	}
+		
+		.relatedContent .paginate ul{ 
+			margin:0; 
+			padding:0; 
+			height:20px;}
+		
+			.relatedContent .paginate ul li { 
+				margin:0; 
+				padding:0; 
+				font-size:11px; 
+				height: 15px; 
+				margin-top:1px; 
+				margin-left: 3px; 
+				margin-right: 3px;}
+			
+.relatedContent #associateRelated li.container{ 
+	float: left;
+	margin:0; 
+	padding:0; 
+	width:32%;
+	padding-left:7px; 
+	cursor: auto;}
+	
+	.relatedContent #associateRelated li.container ul { 
+		float: left;
+		width: 100%;
+		padding:0; 
+		margin:0; }
+		
+		.relatedContent #associateRelated li.container ul li { 
+		float: left;
+		padding: 3px;
+		width: 90%;
+		background: #FFF;}
+		
+	.relatedContent #associateRelated li.container ul li.title { 
+		float: left;
+		padding: 10px 0;
+		margin:0;
+		width:100%; 
+		font-weight: bold; 
+		font-size:11px;
+		background: none;}
+		
+	.relatedContent #associateRelated li.container .associateNote { float: left; width: 75%; padding: 0;}
+		
+	.relatedContent input.rmvRelated{ 
+		margin: 0; 
+		margin-left:1px;}
+		
+	.relatedContent ul li input.relatedInput { height: 20px; font-size: 12px; color: #6b6b6b;}
+	
+	.relatedContent ul li label { 
+		float: left; 
+		margin-top: 5px;
+		width: auto; 
+		padding-right: 5px;
+		font-size: 11px;
+		color: #6b6b6b;}
+	
+
+/* Encuestas */
+
+.formBox li .polloption p { text-align: center; width: 100%;}
+.formBox li .polloption p strong { font-weight: bold;}
+
+.formBox li .polloption .arrowsButtons { float: right; width: 85%;}
+
+.formBox li .polloption .arrowsButtons .btUp, 
+.formBox li .polloption .arrowsButtons .btDown {
+	float: left;
+	margin-right: 5px;
+	width: 16px;
+	height: 16px;
+	background: url(../images/body/iconsEdicion10.png) 0 -863px;
+	cursor: pointer;}
+	
+	.formBox li .polloption .arrowsButtons .btDown { background-position: -16px -863px;}
+	
+.formBox .buttonsPoll { margin-top: 15px;}
+.formBox .buttonsPoll input.delete {
+	background-position: 0 -17px; width: auto; height: 20px; text-align: left; padding-left: 20px;}
+
+
+/* Lightbox *****************************/
+
+#LightBack {
+	display: none;
+	position: fixed;
+	_position: absolute;
+	z-index:100;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	_width: 2000px;
+	_height: 5000px;
+	background: #000;
+	-moz-opacity: 0.6;
+	opacity:.60;
+	filter: alpha(opacity=60);}
+	
+		.lightbox {
+			display: none;
+			position: fixed;
+			_position: absolute;
+			z-index:101;
+			float: left;
+			float: none;
+			top: 5%;
+			left: 25%;
+			margin: 0 auto;
+			width: 640px;
+			padding: 10px;
+			background: #fff;
+			overflow: hidden;
+			-moz-border-radius: 5px;
+}
+			
+		.lightboxTop,
+		.lightboxSearch { float: left; width: 100%; padding-bottom:10px; border-bottom: 1px solid #A5A5B3;}
+		.lightboxSearch { padding-top: 10px; position: relative; overflow: visible; position: relative; z-index: 102;}
+		
+		.lightboxTop p { font-size: 20px; color: #9E9E9E;}
+		
+		.lightbox input.btClose { 
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		z-index: 102;
+		width: 20px;
+		height: 20px;
+		cursor: pointer;
+		background: url(../images/body/adminImages.png) 0 -795px no-repeat;
+		border: none;}
+		
+		.lightboxSearch span {
+			display: inline;
+			width: auto;
+			margin-top: 2px;
+			padding-right: 10px;
+			color: #333;
+			font-size: 12px;}
+			
+			.lightboxSearch input, 
+			.lightboxSearch select { display: inline;width: 35.5%; margin-right: 15px; height: 20px;  font-size: 12px;}
+			
+			.lightboxSearch input { padding: 1px; height: 16px; }
+			
+		.lightboxSearch .searchresults { 
+		position: absolute;
+		float: left;
+		top: 30px;
+		left: 47px;
+		z-index: 103; 
+		padding: 5px;  
+		width: 35%; 
+		background: #ddd;}
+		
+		.lightboxSearch .searchresults a { float: left; padding: 10px 5px; width: 96%; color: #333; background: #fff; margin-top: 1px;}
+		.lightboxSearch .searchresults a:hover { background: #eee;}
+		
+		.lightboxSearch .searchresults a .imgCont { float: left; width: 15%; padding-right: 5%; text-align: center; overflow: hidden;}
+		.lightboxSearch .searchresults a img { height: 40px;}
+		.lightboxSearch .searchresults a .cont { float: left;  width: 78%;}
+		.lightboxSearch .searchresults a span { float: left; width: 100%; color: #333;}
+		
+		.lightboxContent { 
+		float: left; 
+		width: 100%;
+		margin: 10px 0;
+		overflow-x: hidden; 
+		overflow-y: scroll; 
+		height: 390px;
+		position: relative;}
+		
+		.lightboxContent a { 
+		float: left; 
+		height: 120px; 
+		position: relative; 
+		margin: 5px; 
+		width: 120px; 
+		text-align: center; 
+		background: #ddd;
+		vertical-align: middle;
+		overflow: hidden;}
+		
+		.lightboxContent a img { float: none;height: 120px;}
+		
+		.lightboxContent a .imgInfo { 
+		display: none;
+		position: absolute; 
+		float: left; 
+		width: 90%;
+		height: 110px;
+		padding: 5%; 
+		margin-top: 0;
+		top: 0px; 
+		left: 0px; 
+		background: #000; 
+		z-index: 102;
+		-moz-opacity: 0.8;
+		opacity:.80;
+		filter: alpha(opacity=80);}
+		
+		.lightboxContent a:hover .imgInfo { display: block;}
+		
+		.lightboxContent a .imgInfo span { float: left; width: 100%; color: #fff; text-align: left; }
+		
+		.lightboxContent a .imgInfo .buttons {
+			float: left;
+			margin-top: 5px;
+			width: 100%;
+			border-top: 1px solid #fff;}
+			
+			.lightboxContent a .imgInfo .buttons .btSelect {
+				float: left;
+				padding-left: 12px;
+				margin-top: 10px;
+				background: url(../images/body/adminImages.png) no-repeat 0 -822px;
+				height: 15px;
+				border: none;
+				color: #fff;
+				font-size: 11px;
+				cursor: pointer;
+				overflow: visible;}
+				
+				.lightboxContent a .imgInfo .buttons .btDelete {
+					margin-top: 10px;
+					background: url(../images/body/adminImages.png) no-repeat 0 -835px;}
+
+/* cargar archivo */
+
+.lightbox .loadFile,
+.lightbox .selectFile {
+	float: left;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	width:100%;
+	border-bottom: 1px solid #ddd;}
+	
+	.lightbox .contInputs { float: left; width: 100%; margin-top: 10px;}
+	
+	.lightbox .selectFile { border-bottom: none; padding-bottom: 0;}
+	
+	.lightbox .selectFile p.title { margin: 15px 0 5px 0; font-size: 14px;}
+	
+	.lightbox .selectFile .filesContainer {
+		float:left;
+		margin-top: 10px;
+		width: 100%;
+		max-height: 375px;
+		overflow-y: scroll; 
+		overflow-x: none;
+		position: relative;
+		z-index: 104;}
+		
+		.lightbox .editGalery .filesContainer {height: 210px;margin: 0 0 10px 0;}
+		
+	
+	.lightbox .loadFile p, 
+	.lightbox .selectFile p { float:left; clear: left; width: 80%;}
+	
+	.lightbox .selectFile p.short { width: auto; clear: none; }
+	
+	.lightbox .selectFile p span { padding-left: 5px;}
+	
+	.lightbox .loadFile input,
+	.lightbox .loadFile select,
+	.lightbox .selectFile input,
+	.lightbox .selectFile select {
+		float: left;
+		margin-right: 15px;
+		width: 40%;
+		font-size: 14px;
+		padding: 2px;}
+		
+		.lightbox .loadFile input.file { width: 20%; margin-right: 5px;}
+		.lightbox .selContent input.file { width: 12%; margin-right: 15px; margin-top: -3px;}
+		.lightbox .loadFile input.fileTitle,
+		.lightbox .loadFile input.fileEpi{ width: 70%; clear: left;}
+		.lightbox .loadFile input.fileEpi { margin-top: 5px;}
+		
+		.lightbox .selContent label { float: left; width: auto; padding-right: 5px; font-size: 12px; color: #666;}
+		
+		.lightbox .selectFile select.short { width: 20%;}
+		
+		.lightbox .loadFile input.btDarkSmall { margin-top: 2px;}
+		
+		.lightbox .selectFile .photoBox .photoOptions input.btDelete { margin: 0; float: right; padding: 0; margin-top: -15px;}
+		
+		.lightbox .paginadorGoTo input.btText { width: auto; font-size: 12px;}
+		.lightbox .paginadorGoTo input.goTo {width: 46px; font-size: 12px; margin-right: 0;}
+		.lightbox .selectFile .paginadorCant p { width: auto;}
+		
+		.lightbox .selectFile input.btDarkSmall { 
+		margin-right: 0; float: left;}
+
+.lightbox .buttons p.error,
+.backend.formBox li .editGalery .selectedGallery .buttons p.error { float: right; width: 30%; border: none; background: none; padding: 0 5px;}
+
+.lightbox .buttons img,
+.formBox li .editGalery .selectedGallery .buttons img{ float: right;}
+
+.lightbox .loadFile .preview { float: left; width: auto; height: 135px;}
+.lightbox .loadFile img { float: left; clear: left;}
+
+
+
+/* Arbol de categorias */
+
+.listItems table td a.categoryLvl2 { padding-left: 20px;}
+.listItems table td a.categoryLvl3 { padding-left: 40px;}
+.listItems table td a.categoryLvl4 { padding-left: 60px;}
+.listItems table td a.categoryLvl5 { padding-left: 80px;}
+.listItems table td a.categoryLvl6 { padding-left: 100px;}
+.listItems table td a.categoryLvl7 { padding-left: 120px;}
+.listItems table td a.categoryLvl8 { padding-left: 140px;}
+.listItems table td a.categoryLvl9 { padding-left: 160px;}
+.listItems table td a.categoryLvl10 { padding-left: 1800px;}
+
+/* Section Menu */
+
+.sectionMenu {
+	float: left;
+	margin-top: 5px;
+	margin-bottom: 15px;
+	width: 100%;
+	border-bottom: 6px solid #0D4896;}
+	
+	.sectionMenu a {
+		float: left;
+		margin-left: 5px;
+		padding-right: 5px;
+		width: auto;
+		height: 24px;
+		background: url(../images/body/adminImagesRight.png) right -114px no-repeat;}
+		
+		.sectionMenu a span {
+			float: left;
+			padding-top: 5px;
+			padding-left: 7px;
+			padding-right: 2px;
+			width: auto;
+			height: 19px;
+			background: url(../images/body/adminImages.png) 0 -1958px no-repeat;
+			font-size: 13px;
+			color: #595959;}
+			
+			.sectionMenu a:hover,
+			.sectionMenu a.active { background-position: right -60px;}
+			
+			.sectionMenu a:hover span,
+			.sectionMenu a.active span { background-position: 0 -1904px; color: #FFF;}
+
+/* Plan de estudios */
+
+.titleOptions {
+	float: left;
+	margin-top: 3px;
+	padding-left: 20px;
+	width: auto;}
+
+.titleOptions p {
+	margin-top: 1px;
+	padding-right: 5px;
+	font-size: 13px;}
+	
+.titleOptions select {
+	width: 100px;
+	color: #969696;
+	font-size: 12px;}
+	
+.listItems table td p.obervations { padding: 7px 0;}
+.listItems table td p.obervations span { color: #033d8f;}
+
+/*	Popup 	*/
+.popupLayout { background: none;}
+.popupLayout .lightbox {width: 98%; position: relative; float: right; left: 0; top: 0;}
+
+/* calendario */
+
+a.dp-choose-date {
+	float: left;
+	width: 16px;
+	height: 16px;
+	padding: 0;
+	margin: 5px 3px 0;
+	display: block;
+	text-indent: -2000px;
+	overflow: hidden;
+	background: url(/images/various/calendar.png) no-repeat; 
+}
+a.dp-choose-date.dp-disabled {
+	background-position: 0 -20px;
+	cursor: default;
+}
+
+input.dp-applied {
+	width: 140px;
+	float: left;
+}
+
+
+table.jCalendar { float: left; margin-top: 4px;}
+
+.btPrev {
+	float: left;
+	width: auto;
+	padding-right: 6px;}
+	
+	.btPrev:hover {color: #5684b3;}
+	
+#ptTimeSelectCntr { background: #FFF; border: 1px solid #CCC;}
+
+/* listados */
+
+.itemsList { 
+	padding-bottom: 10px;
+	width: 90%;}
+	
+	.itemsList li {
+		width: 100%;
+		padding: 2px 0;}
+		
+	.itemsList li p {
+		font-size: 12px;}
+	.itemsList li a {
+		padding-left: 5px;
+		font-size: 12px;
+		color: #033d8f;}
+		
+.button{
+border:1px solid #616261; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-family:arial, helvetica, sans-serif; padding: 10px 10px 10px 10px; text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold; text-align: center; color: #FFFFFF; background-color: #7d7e7d;
+ background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7d7e7d), color-stop(100%, #0e0e0e));
+ background-image: -webkit-linear-gradient(top, #7d7e7d, #0e0e0e);
+ background-image: -moz-linear-gradient(top, #7d7e7d, #0e0e0e);
+ background-image: -ms-linear-gradient(top, #7d7e7d, #0e0e0e);
+ background-image: -o-linear-gradient(top, #7d7e7d, #0e0e0e);
+ background-image: linear-gradient(top, #7d7e7d, #0e0e0e);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#7d7e7d, endColorstr=#0e0e0e);
+}
+
+.button:hover{
+ border:1px solid #4a4b4a; background-color: #646464;
+ background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#646464), color-stop(100%, #282828));
+ background-image: -webkit-linear-gradient(top, #646464, #282828);
+ background-image: -moz-linear-gradient(top, #646464, #282828);
+ background-image: -ms-linear-gradient(top, #646464, #282828);
+ background-image: -o-linear-gradient(top, #646464, #282828);
+ background-image: linear-gradient(top, #646464, #282828);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#646464, endColorstr=#282828);
+}		

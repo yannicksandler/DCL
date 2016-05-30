@@ -1,0 +1,6 @@
+RewriteEngine on
+
+RewriteBase /
+RewriteRule !\.([a-zA-Z0-9]{1,4})$ index.php
+
+SetEnv EXEC_ENV development

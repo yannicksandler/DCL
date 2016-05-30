@@ -1,0 +1,222 @@
+/* Lightbox *****************************/
+
+#LightBack {
+	display: none;
+	position: fixed;
+	_position: absolute;
+	z-index:100;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	_width: 2000px;
+	_height: 5000px;
+	background: #000;
+	-moz-opacity: 0.6;
+	opacity:.60;
+	filter: alpha(opacity=60);}
+	
+		.lightbox {
+			display: none;
+			position: fixed;
+			_position: absolute;
+			z-index:101;
+			float: left;
+			float: none;
+			top: 5%;
+			left: 25%;
+			margin: 0 auto;
+			width: 640px;
+			padding: 10px;
+			background: #fff;
+			overflow: hidden;
+			-moz-border-radius: 5px;
+}
+			
+		.lightboxTop,
+		.lightboxSearch { float: left; width: 100%; padding-bottom:10px; border-bottom: 1px solid #A5A5B3;}
+		.lightboxSearch { padding-top: 10px; position: relative; overflow: visible; position: relative; z-index: 102;}
+		
+		.lightboxTop p { font-size: 20px; color: #9E9E9E;}
+		
+		.lightbox input.btClose { 
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		z-index: 102;
+		width: 20px;
+		height: 20px;
+		cursor: pointer;
+		background: url(../images/body/adminImages.png) 0 -795px no-repeat;
+		border: none;}
+		
+		.lightboxSearch span {
+			display: inline;
+			width: auto;
+			margin-top: 2px;
+			padding-right: 10px;
+			color: #333;
+			font-size: 12px;}
+			
+			.lightboxSearch input, 
+			.lightboxSearch select { display: inline;width: 35.5%; margin-right: 15px; height: 20px;  font-size: 12px;}
+			
+			.lightboxSearch input { padding: 1px; height: 16px; }
+			
+		.lightboxSearch .searchresults { 
+		position: absolute;
+		float: left;
+		top: 30px;
+		left: 47px;
+		z-index: 103; 
+		padding: 5px;  
+		width: 35%; 
+		background: #ddd;}
+		
+		.lightboxSearch .searchresults a { float: left; padding: 10px 5px; width: 96%; color: #333; background: #fff; margin-top: 1px;}
+		.lightboxSearch .searchresults a:hover { background: #eee;}
+		
+		.lightboxSearch .searchresults a .imgCont { float: left; width: 15%; padding-right: 5%; text-align: center; overflow: hidden;}
+		.lightboxSearch .searchresults a img { height: 40px;}
+		.lightboxSearch .searchresults a .cont { float: left;  width: 78%;}
+		.lightboxSearch .searchresults a span { float: left; width: 100%; color: #333;}
+		
+		.lightboxContent { 
+		float: left; 
+		width: 100%;
+		margin: 10px 0;
+		overflow-x: hidden; 
+		overflow-y: scroll; 
+		height: 390px;
+		position: relative;}
+		
+		.lightboxContent a { 
+		float: left; 
+		height: 120px; 
+		position: relative; 
+		margin: 5px; 
+		width: 120px; 
+		text-align: center; 
+		background: #ddd;
+		vertical-align: middle;
+		overflow: hidden;}
+		
+		.lightboxContent a img { float: none;height: 120px;}
+		
+		.lightboxContent a .imgInfo { 
+		display: none;
+		position: absolute; 
+		float: left; 
+		width: 90%;
+		height: 110px;
+		padding: 5%; 
+		margin-top: 0;
+		top: 0px; 
+		left: 0px; 
+		background: #000; 
+		z-index: 102;
+		-moz-opacity: 0.8;
+		opacity:.80;
+		filter: alpha(opacity=80);}
+		
+		.lightboxContent a:hover .imgInfo { display: block;}
+		
+		.lightboxContent a .imgInfo span { float: left; width: 100%; color: #fff; text-align: left; }
+		
+		.lightboxContent a .imgInfo .buttons {
+			float: left;
+			margin-top: 5px;
+			width: 100%;
+			border-top: 1px solid #fff;}
+			
+			.lightboxContent a .imgInfo .buttons .btSelect {
+				float: left;
+				padding-left: 12px;
+				margin-top: 10px;
+				background: url(../images/body/adminImages.png) no-repeat 0 -822px;
+				height: 15px;
+				border: none;
+				color: #fff;
+				font-size: 11px;
+				cursor: pointer;
+				overflow: visible;}
+				
+				.lightboxContent a .imgInfo .buttons .btDelete {
+					margin-top: 10px;
+					background: url(../images/body/adminImages.png) no-repeat 0 -835px;}
+
+/* cargar archivo */
+
+.lightbox .loadFile,
+.lightbox .selectFile {
+	float: left;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	width:100%;
+	border-bottom: 1px solid #ddd;}
+	
+	.lightbox .contInputs { float: left; width: 100%; margin-top: 10px;}
+	
+	.lightbox .selectFile { border-bottom: none; padding-bottom: 0;}
+	
+	.lightbox .selectFile p.title { margin: 15px 0 5px 0; font-size: 14px;}
+	
+	.lightbox .selectFile .filesContainer {
+		float:left;
+		margin-top: 10px;
+		width: 100%;
+		max-height: 375px;
+		overflow-y: scroll; 
+		overflow-x: none;
+		position: relative;
+		z-index: 104;}
+		
+		.lightbox .editGalery .filesContainer {height: 210px;margin: 0 0 10px 0;}
+		
+	
+	.lightbox .loadFile p, 
+	.lightbox .selectFile p { float:left; clear: left; width: 80%;}
+	
+	.lightbox .selectFile p.short { width: auto; clear: none; }
+	
+	.lightbox .selectFile p span { padding-left: 5px;}
+	
+	.lightbox .loadFile input,
+	.lightbox .loadFile select,
+	.lightbox .selectFile input,
+	.lightbox .selectFile select {
+		float: left;
+		margin-right: 15px;
+		width: 40%;
+		font-size: 14px;
+		padding: 2px;}
+		
+		.lightbox .loadFile input.file { width: 20%; margin-right: 5px;}
+		.lightbox .selContent input.file { width: 12%; margin-right: 15px; margin-top: -3px;}
+		.lightbox .loadFile input.fileTitle,
+		.lightbox .loadFile input.fileEpi{ width: 70%; clear: left;}
+		.lightbox .loadFile input.fileEpi { margin-top: 5px;}
+		
+		.lightbox .selContent label { float: left; width: auto; padding-right: 5px; font-size: 12px; color: #666;}
+		
+		.lightbox .selectFile select.short { width: 20%;}
+		
+		.lightbox .loadFile input.btDarkSmall { margin-top: 2px;}
+		
+		.lightbox .selectFile .photoBox .photoOptions input.btDelete { margin: 0; float: right; padding: 0; margin-top: -15px;}
+		
+		.lightbox .paginadorGoTo input.btText { width: auto; font-size: 12px;}
+		.lightbox .paginadorGoTo input.goTo {width: 46px; font-size: 12px; margin-right: 0;}
+		.lightbox .selectFile .paginadorCant p { width: auto;}
+		
+		.lightbox .selectFile input.btDarkSmall { 
+		margin-right: 0; float: left;}
+
+.lightbox .buttons p.error,
+.backend.formBox li .editGalery .selectedGallery .buttons p.error { float: right; width: 30%; border: none; background: none; padding: 0 5px;}
+
+.lightbox .buttons img,
+.formBox li .editGalery .selectedGallery .buttons img{ float: right;}
+
+.lightbox .loadFile .preview { float: left; width: auto; height: 135px;}
+.lightbox .loadFile img { float: left; clear: left;}
