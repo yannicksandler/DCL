@@ -327,5 +327,38 @@ class Factura extends BaseFactura
 				return number_format($f['ImporteLiquidado'],2, '.','');
 		}
 	}
+
+	public function getHeadersForExport() {
+		return ['Numero','Fecha','Cliente','Importe Total','Por Cobrar','Abonado','Tipo IVA','Estado'];
+	}
+
+	/**
+	 * Metodo que formatea una factura para enviarla a exportar
+	 * @return array
+	 */
+	public function FormatDataForExport() {
+		//Obtenemos las CobranzaLiquidaciones para calcular lo que fue abonado discriminando cada una de ellas
+		$cobranzaStr = array();
+		if(!empty($this->CobranzaLiquidaciones)){
+			foreach($this->CobranzaLiquidaciones as $cobranzaLiq){
+				$cobranzaStr[] = "Cobranza #".$cobranzaLiq->Cobranza->Id. " | Importe ". currency($cobranzaLiq->Importe)."\n";
+			}
+		}else{
+			$cobranzaStr[] = '-';
+		}
+
+		$formattedData = array(
+			$this->Id,
+			$this->Fecha,
+			utf8_encode($this->Cliente->Nombre),
+			currency($this->Importe),
+			currency($this->GetImportePendienteDeCobro()),
+			implode("", $cobranzaStr),
+			$this->GetLetraFactura(),
+			'Vigente'
+		);
+
+		return $formattedData;
+	}
 	
 }

@@ -6,15 +6,24 @@
 
 {literal}
 <script type="text/javascript">
-$(document).ready(function(){	
+$(document).ready(function(){
 
-    $('#frmAction').submit(function() {
-		
-    	if(AdvancedSearch())
+	$('#btnExport').click(function(e){
+		debugger;
+		e.preventDefault();
+		e.stopPropagation();
+
+		AdvancedSearch(1);
+	});
+
+	$('#frmAction').submit(function(e) {
+		e.preventDefault();
+		debugger;
+		if(AdvancedSearch())
 			return false;
 
-    	return false;
-  	});
+		return false;
+	});
 
     // ocultar site header
     $('div.header').hide();
@@ -94,74 +103,82 @@ function abrirPopUp(pagina, opciones)
 	window.open(pagina,"",opciones);
 }
 
-function AdvancedSearch()
+function AdvancedSearch(forExport)
 {
-    var FechaDesde	=	$("#FechaDesde").val();
-    var FechaHasta	=	$("#FechaHasta").val();
-    var FacturaId	=	$("#FacturaId").val();
-    var ClienteNombre	=	$("#ClienteNombre").val();
-    var TipoA	=	$("#TipoA:checked").val();
-    var TipoB	=	$("#TipoB:checked").val();
-    var TipoN	=	$("#TipoN:checked").val();
+	var params = {
+		 FechaDesde:	$("#FechaDesde").val(),
+		 FechaHasta:	$("#FechaHasta").val(),
+		 FacturaId:	$("#FacturaId").val(),
+		 ClienteNombre:	$("#ClienteNombre").val(),
+		 TipoA:	$("#TipoA:checked").val(),
+		 TipoB:	$("#TipoB:checked").val(),
+		 TipoN:	$("#TipoN:checked").val(),
+	};
+	var paramsStr = '';
 
-	if( (FechaDesde != "Fecha desde") || (FechaHasta != "Fecha hasta") 
-			|| (FacturaId != "Nro de factura") 
-			|| (ClienteNombre != "Nombre de cliente")
-			|| (TipoA == "A")
-			|| (TipoB == "B")
-			|| (TipoN == "N")
-		)
-    {
-        // url
-        
-        var url = '/Facturacion/List/order/Id_DESC';
-        
-        if(FechaDesde != 'Fecha desde')
+    if(ValidateParams(params)){
+
+        if(params.FechaDesde != 'Fecha desde')
 		{
-            FechaDesde = FechaDesde.replace("/", "_").replace("/", "_");
-            
-			url = url + '/FechaDesde/' + FechaDesde;
+            var FechaDesde = params.FechaDesde.replace("/", "_").replace("/", "_");
+			paramsStr = paramsStr + '/FechaDesde/' + FechaDesde;
 		}
         
-        if(FechaHasta != 'Fecha hasta')
+        if(params.FechaHasta != 'Fecha hasta')
 		{
-            FechaHasta  =   FechaHasta.replace("/", "_").replace("/", "_");
-			url = url + '/FechaHasta/' + FechaHasta;
+            var FechaHasta  =   params.FechaHasta.replace("/", "_").replace("/", "_");
+			paramsStr = paramsStr + '/FechaHasta/' + FechaHasta;
 		}
 
-		if(FacturaId != 'Nro de factura')
+		if(params.FacturaId != 'Nro de factura')
 		{
-			url	=	url + '/FacturaId/' + FacturaId;
+			paramsStr	=	paramsStr + '/FacturaId/' + params.FacturaId;
 		}
 
-		if(ClienteNombre != 'Nombre de cliente')
+		if(params.ClienteNombre != 'Nombre de cliente')
 		{
-			ClienteNombre = ClienteNombre.replace(" ", "_").replace(" ", "_");
-			
-			url	=	url + '/ClienteNombre/' + ClienteNombre;
+			var ClienteNombre = params.ClienteNombre.replace(" ", "_").replace(" ", "_");
+			paramsStr	=	paramsStr + '/ClienteNombre/' + ClienteNombre;
 		}
 
-		if(TipoA)
+		if(params.TipoA)
 		{
-			url	=	url + '/FacturaTipo/' + TipoA;
+			paramsStr	=	paramsStr + '/FacturaTipo/' + params.TipoA;
 		}
 
-		if(TipoB)
+		if(params.TipoB)
 		{
-			url	=	url + '/FacturaTipo/' + TipoB;
+			paramsStr	=	paramsStr + '/FacturaTipo/' + params.TipoB;
 		}
 
-		if(TipoN)
+		if(params.TipoN)
 		{
-			url	=	url + '/FacturaTipo/' + TipoN;
+			paramsStr	=	paramsStr + '/FacturaTipo/' + params.TipoN;
 		}
-        
-        //alert(url);
-        window.location	=	url;
-    	
-		//return true;
     }
+
+	// url
+	if(forExport){
+		paramsStr = paramsStr + '/listAction/Export';
+	}
+
+	var url = '/Facturacion/List/order/Id_DESC';
+	window.location	=	url + paramsStr;
 	
+	return false;
+}
+
+function ValidateParams(params) {
+	if( (params.FechaDesde != "Fecha desde") || (params.FechaHasta != "Fecha hasta")
+			|| (params.FacturaId != "Nro de factura")
+			|| (params.ClienteNombre != "Nombre de cliente")
+			|| (params.TipoA == "A")
+			|| (params.TipoB == "B")
+			|| (params.TipoN == "N")
+	){
+		return true;
+	}
+
 	return false;
 }
 
@@ -286,8 +303,13 @@ function reload()
 				    <h2><img src="/images/icons/bullet_go.png" alt="item" title="Item"/> Cantidad de facturas encontradas: {$CantidadEncontrados}</h2>
 				    </td>
 				    <td>
-				    
-				    	
+
+						<div class="buttonsCont" style="clear: left;">
+							<form action="/Facturacion/Export" metho="POST">
+								<input type="submit" id="btnExport" value="Exportar" class="btDark" title="Exportar" />
+							</form>
+
+						</div>
 				    
 				    </td>
 				    <td>

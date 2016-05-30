@@ -21,7 +21,11 @@
 						APP_ROOT_PATH . DS . 'lib'. PS .
 						APP_ROOT_PATH . DS . 'lib' . DS . 'Models' . PS .
 						APP_ROOT_PATH . DS . 'lib' . DS . 'Models' . DS . 'generated');
-	
+
+	//Extra Lib
+	require(APP_ROOT_PATH . '/lib/General/Utils.php');
+	require(APP_ROOT_PATH . '/lib/Excel/Excel.php');
+
 	//autload para doctrine
 	require(APP_ROOT_PATH . '/core/Doctrine/Doctrine.php');
 	spl_autoload_register( array('Doctrine','autoload') );
@@ -29,6 +33,8 @@
 	//autoload del framework
 	require_once('IDS/Loader.php');
 	spl_autoload_register( 'IDS_Loader::ClassLocator' );
+
+
 	
 	//inicializacion del factory y carga de configuracion
 	IDS_Factory_Manager::Init( new IDS_Factory_Standard() );

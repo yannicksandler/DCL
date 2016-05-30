@@ -8,6 +8,7 @@ class IDS_Controller_Action_Helper_List
 {
     const DEFAULT_PRIORITY  =       5;
     const DEFAULT_PAGESIZE  =       20;
+    const FORMAT_DATA_FOR_EXPORT_METHOD = 'FormatDataForExport';
             
     private $_controller;     
       protected $_options     =     array(
@@ -227,7 +228,7 @@ class IDS_Controller_Action_Helper_List
                     break;
             }
         }
-                  
+
             if( isset($listAction) )
             {
                   switch( ucwords($listAction) )
@@ -235,9 +236,38 @@ class IDS_Controller_Action_Helper_List
                         case 'Export':
                               try
                               {
-                                    $return           =     $this->Export();
+                                  if( $request->Param("search") )
+                                  {
+
+                                      $searchParam      = isset( $options['searchField']) ? $options['searchField'] : 'Name';
+                                      $params['filters'][$searchParam]    =     array(
+                                          'type'  =>  'like',
+                                          'value' =>  urldecode($params["search"])
+                                      );
+                                  }
+
+                                  $orderSeparator   =   isset($options['orderSeparator'])      ?
+                                      $options['orderSeparator'] :
+                                      $this->_options['orderSeparator'];
+
+                                  $query                        =     $query      ? $query : $this->GetList($table);
+
+                                  if( isset($params['filters']) and is_array($params['filters']) and count($params['filters']) )
+                                  {
+                                      $return['filters']                  =      $params['filters'];
+                                      $this->FilterList($query, $params['filters']);
+                                  }
+
+                                  if( isset($params['order']) )
+                                  {
+                                      $query->addOrderBy(str_replace($orderSeparator,' ',$params['order']));
+                                      list($return['orderBy'],
+                                          $return['order'] )            =       explode($orderSeparator,$params['order']);
+                                  }
+
+                                  $return           =     $this->Export($query);
                                     
-                                    $return['exportSuccessMessage'] =   isset($options['exportSuccessMessage'])   ?
+                                  $return['exportSuccessMessage'] =   isset($options['exportSuccessMessage'])   ?
                                                                                                 $options['exportSuccessMessage'] :
                                                                                                       $this->_options['exportSuccessMessage'];
                               }
@@ -493,7 +523,50 @@ class IDS_Controller_Action_Helper_List
       */
       public function Export(Doctrine_Query $query, $extension = 'csv')
       {
-            return array();
+          //Llamamos a la funcion que exporta via CSV
+          $typeFunction = strtoupper($extension).'Export';
+
+          $this->$typeFunction($query);
+          exit(0);
+
+      }
+
+      private function CSVExport(Doctrine_Query $query){
+          //Creamos un objeto del Wrapper de Excel
+          $excelPHP = ExcelPHP::getInstance();
+
+          //Creamos la tabla
+          $properties = array('title'=> 'Export File '.date('d-m-Y G.i.s'));
+
+          $dataFormatted = array();
+          $data = $query->execute();
+
+          if(!empty($data)){
+              //Lo utilizamos para poder usar las funciones del modelo (ej: getHeadersForExport)
+              $exampleModel = $data->getFirst();
+
+              $methodExists = 0;
+              $method = self::FORMAT_DATA_FOR_EXPORT_METHOD;
+
+              foreach($data as $row) {
+                  if($methodExists || method_exists($row, $method)){
+                      $dataFormatted[] = $row->$method();
+                      $methodExists = 1;
+                  }else{
+                      throw new Exception("No Method [$method] in Model [".get_class($row)."]");
+                  }
+              }
+
+              $excelPHP->setProperties($properties);
+
+              $excelPHP->newTable();
+              $excelPHP->setHeaders($exampleModel->getHeadersForExport());
+              $excelPHP->setData($dataFormatted);
+              $excelPHP->setAutoSizeColumns();
+              $excelPHP->setVerticalAlignment();
+
+              $excelPHP->download();
+          }
       }
 }
 ?>
