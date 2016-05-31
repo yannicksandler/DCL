@@ -45,5 +45,5 @@ Temporary Items
 # Archivos del php storm
 *.idea
 config/config.ini
-*cache*
+*smarty/cache*
 *compiled*
