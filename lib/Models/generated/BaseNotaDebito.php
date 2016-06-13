@@ -11,7 +11,6 @@
  * @property char $Tipo
  * @property string $Numero
  * @property decimal $Importe
- * @property decimal $ImporteRechazo
  * @property integer $TipoIvaId
  * @property clob $Comentario
  * @property date $FechaAnulacion
@@ -58,12 +57,6 @@ abstract class BaseNotaDebito extends Doctrine_Record
              'scale' => 2,
              'unsigned' => true,
              'notnull' => true,
-             'length' => '10',
-             ));
-        $this->hasColumn('ImporteRechazo', 'decimal', 10, array(
-             'type' => 'decimal',
-             'scale' => 2,
-             'unsigned' => true,
              'length' => '10',
              ));
         $this->hasColumn('TipoIvaId', 'integer', 4, array(

@@ -52,10 +52,10 @@ class OrdenDeTrabajoTable extends Doctrine_Table
                 $q->andWhere('o.FechaEntrega >= ?', $dateHelper->fromViewFormat($fechaProximoCambioEstado));
         }
         
-    	if(isset($filters['FacturaId']) and is_numeric($filters['FacturaId']))
+    	/*if(isset($filters['FacturaId']) and is_numeric($filters['FacturaId']))
         {
             $q->andWhere('o.FacturaId = ?', $filters['FacturaId']);
-        }
+        }*/
         
         $s	=	new Classes_Session();
         if($s->EsPerfil('Ventas'))
@@ -149,9 +149,10 @@ class OrdenDeTrabajoTable extends Doctrine_Table
 				$FechaDesde	=	$filters['FechaDesde'];
 				
 				$dateHelper = new Classes_DateHelper();
-				
-            	$q->innerJoin('ot.Factura f')
-                	->andWhere('f.Fecha >= ?', $dateHelper->fromViewFormat($FechaDesde));
+
+					//OJO CON ESTO: NO BORRAR
+            	/*$q->innerJoin('ot.Factura f')
+                	->andWhere('f.Fecha >= ?', $dateHelper->fromViewFormat($FechaDesde));*/
                 	
                 $flag	=	true;
 				}
@@ -173,21 +174,21 @@ class OrdenDeTrabajoTable extends Doctrine_Table
 				else
 				{
 					
-					$q->innerJoin('ot.Factura f')
-                		->andWhere('f.Fecha <= ?', $dateHelper->fromViewFormat($FechaHasta));
+					/*$q->innerJoin('ot.Factura f')
+                		->andWhere('f.Fecha <= ?', $dateHelper->fromViewFormat($FechaHasta));*/
                 			
 				}
 				}	
             }
 
-    	if(isset($filters['FacturaId']))
+    	/*if(isset($filters['FacturaId']))
         {
         	$FacturaId	=	$filters['FacturaId'];
 	    	if(is_numeric($FacturaId))
 	        {
 	            $q->andWhere('ot.FacturaId = ?', $FacturaId);
 	        }
-        }
+        }*/
         
     	$s	=	new Classes_Session();
         if($s->EsPerfil('Ventas'))
@@ -254,12 +255,23 @@ class OrdenDeTrabajoTable extends Doctrine_Table
     		$estados[] = $finalizado->Id;
     		$estados[] = $aprobado->Id;
     	}
-    	
-		$q	=	Doctrine_Query::create()
-                    ->from('OrdenDeTrabajo o')
-                    ->andWhere('o.facturaid IS NULL')
-                    ->andWhereIn('o.EstadoId', $estados)
-                    ->orderBy('o.Id DESC');
+
+		//Traemos todos los OrdenDeTrabajoIds que tiene facturas relacionadas
+		$statement = Doctrine_Manager::getInstance()->connection();
+		$subquery	=	"SELECT f.ordendetrabajoid ot_id FROM Factura f ORDER BY id DESC";
+		$results = $statement->execute($subquery);
+		$facturas = $results->fetchAll();
+		foreach($facturas as $f){
+			$ids[] = $f['ot_id'];
+		}
+
+		//Traemos todas las ordenes de trabajo cuyos IDS no correspondan a los anteriores que tiene factura
+		$q = Doctrine_Query::create()
+			->from('OrdenDeTrabajo o')
+			->WhereIn('o.EstadoId', $estados)
+			->andWhereNotIn('o.id', $ids/*$subquery*/)
+			->orderBy('o.Id DESC');
+
                     
     	if(isset($filters['ClienteId']) and is_numeric($filters['ClienteId']))
         {
@@ -300,13 +312,14 @@ class OrdenDeTrabajoTable extends Doctrine_Table
         $factory	= IDS_Factory_Manager::GetFactory();
 		$config		= $factory->GetConfig();			
 		$fechainicio	=	$config->Get('facturacion.fechainicio');
-		
+
 		if(isset($fechainicio))
 		{
 			$q->andWhere('o.FechaInicio >= ?', $fechainicio);
 		}
         //echo $q->getSqlQuery();
-        return $q;
+
+		return $q;
 
     }
     
@@ -425,14 +438,14 @@ class OrdenDeTrabajoTable extends Doctrine_Table
 				}	
             }
 
-    	if(isset($filters['FacturaId']))
+    	/*if(isset($filters['FacturaId']))
         {
         	$FacturaId	=	$filters['FacturaId'];
 	    	if(is_numeric($FacturaId))
 	        {
 	            $q->andWhere('ot.FacturaId = ?', $FacturaId);
 	        }
-        }
+        }*/
     		
     	//$q = $this->GetByFilter($filters);
     	$q->andWhere('ot.EstadoId = ?', $enProduccion);

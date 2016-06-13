@@ -44,11 +44,10 @@
                         </td>
                         <td width="10%"><a href="/{$varController}/Edit/id/{$record.Id}" title="Ganancia"></a>{if ($record.TotalSinIva-$record.CostoTotal)<0}<img src="/images/icons/exclamation.png" title="exclamacion"/>{/if}{$record.TotalSinIva-$record.CostoInsumosElegidos}</td>
                         <td width="10%">
-                        	{if $record.FacturaId}
-                        	<a href="/{$varController}/Edit/id/{$record.Id}" title="Factura"></a>{$record.FacturaId}
-                        	{else}
-                        	<img src="/images/icons/error.png" alt="La orden no fue facturada" title="La orden no fue facturada"/>
-                        	{/if}
+                            {foreach from=$record.Facturas item="fac"}
+                                <a href="/{$varController}/Edit/id/{$record.Id}" title="Factura"></a>{$record.FacturaId}</br>
+                            {/foreach}
+
                         </td>
                         
                         <td width="6%" align="center">

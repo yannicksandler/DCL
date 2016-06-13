@@ -296,16 +296,11 @@ class FacturaTable extends Doctrine_Table
 	 */
 	public function GetPendientesDeCobro($filters)
 	{
-		$subselect	=	'(
-        SELECT SUM(o3.importe)
-		FROM CobranzaLiquidacion o3
-		WHERE o3.facturaid = f.id 
-        ) as ImporteAbonado';
 		
 		$q	=	Doctrine_Query::create()
 				->from('Factura f')
 				->leftJoin('f.CobranzaLiquidaciones cl')
-				->leftJoin('f.OrdenesDeTrabajo ot')
+				->leftJoin('f.OrdenDeTrabajo ot')
 				->AndWhere('f.fechaanulacion IS NULL')
 				->andWhereIn('f.Id', $this->GetPendientesDeCobroIds())
 				->OrderBy('f.FechaVencimiento ASC');

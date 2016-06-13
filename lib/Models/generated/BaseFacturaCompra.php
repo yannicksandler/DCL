@@ -28,11 +28,9 @@
  * @property date $FechaVencimiento
  * @property integer $TipoGastoId
  * @property string $TipoNota
- * @property integer $OrdenDePagoId
  * @property Proveedor $Proveedor
  * @property TipoIva $TipoIva
  * @property TipoGasto $TipoGasto
- * @property OrdenDePago $OrdenDePago
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -165,11 +163,6 @@ abstract class BaseFacturaCompra extends Doctrine_Record
              'type' => 'string',
              'length' => '2',
              ));
-        $this->hasColumn('OrdenDePagoId', 'integer', 4, array(
-             'type' => 'integer',
-             'unsigned' => true,
-             'length' => '4',
-             ));
 
 
         $this->index('fk_FacturaCompra_proveedor', array(
@@ -208,10 +201,6 @@ abstract class BaseFacturaCompra extends Doctrine_Record
 
         $this->hasOne('TipoGasto', array(
              'local' => 'TipoGastoId',
-             'foreign' => 'Id'));
-
-        $this->hasOne('OrdenDePago', array(
-             'local' => 'OrdenDePagoId',
              'foreign' => 'Id'));
     }
 }

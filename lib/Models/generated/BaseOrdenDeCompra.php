@@ -16,7 +16,6 @@
  * @property timestamp $FechaDeEntrega
  * @property string $CondicionesDePago
  * @property char $PendienteDePago
- * @property decimal $ImporteCompensatorio
  * @property OrdenDePago $OrdenDePago
  * @property TipoIva $TipoIva
  * @property Proveedor $Proveedor
@@ -84,10 +83,10 @@ abstract class BaseOrdenDeCompra extends Doctrine_Record
              'length' => '2',
              ));
         $this->hasColumn('ImporteCompensatorio', 'decimal', 10, array(
-             'type' => 'decimal',
-             'scale' => 2,
-             'length' => '10',
-             ));
+            'type' => 'decimal',
+            'scale' => 2,
+            'length' => '10',
+        ));
 
 
         $this->index('fk_OrdenDeCompra_Proveedor', array(

@@ -320,8 +320,6 @@ OrdenDeTrabajo:
       type: decimal(10)
       scale: 2
       default: null
-    FacturaId:
-      type: integer(4)
     TiempoEstimado:
       type: integer(4)
       unsigned: true
@@ -357,11 +355,6 @@ OrdenDeTrabajo:
       local: PresupuestoId
       foreign: Id
       foreignAlias: OrdenDeTrabajo
-    Factura:
-      class: Factura
-      local: FacturaId
-      foreign: Id
-      foreignAlias: OrdenesDeTrabajo
     CreadorUsuario:
       class: Usuario
       local: CreadorUsuarioId
@@ -372,8 +365,6 @@ OrdenDeTrabajo:
       fields: [ClienteId]
     estadoid_idx:
       fields: [EstadoId]
-    fk_orden_de_trabajo_Factura1:
-      fields: [FacturaId]
     fk_creador_usuario1:
       fields: [CreadorUsuarioId]
   options:
@@ -599,6 +590,10 @@ OrdenDeCompra:
     PendienteDePago:
       type: char(2)
       default: SI
+    ImporteCompensatorio:
+      type: decimal(10)
+      scale: 2
+      default: null
   relations:
     OrdenDePago:
       class: OrdenDePago
@@ -873,6 +868,10 @@ Factura:
     FechaVencimiento:
       type: date
       default: null
+    OrdenDeTrabajoId:
+      type: integer(4)
+      unsigned: true
+      notnull: true
   relations:
     Cliente:
       class: Cliente
@@ -884,12 +883,18 @@ Factura:
       local: TipoIvaId
       foreign: Id
       foreignAlias: Facturas
+    OrdenDeTrabajo:
+      class: OrdenDeTrabajo
+      local: OrdenDeTrabajoId
+      foreign: Id
+      foreignAlias: Facturas
   indexes:
     fk_Factura_cliente1:
       fields: [ClienteId]
     fk_Factura_TipoIva1:
       fields: [TipoIvaId]
-
+    fk_Factura_OrdenTrabajo1:
+      fields: [OrdenDeTrabajoId]
 
 TipoIva:
   columns:

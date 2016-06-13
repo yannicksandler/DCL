@@ -16,9 +16,10 @@
  * @property decimal $ImporteIva
  * @property decimal $ImporteSubtotal
  * @property date $FechaVencimiento
+ * @property integer $OrdenDeTrabajoId
  * @property Cliente $Cliente
  * @property TipoIva $TipoIva
- * @property Doctrine_Collection $OrdenesDeTrabajo
+ * @property OrdenDeTrabajo $OrdenDeTrabajo
  * @property Doctrine_Collection $CobranzaLiquidaciones
  * 
  * @package    ##PACKAGE##
@@ -85,6 +86,12 @@ abstract class BaseFactura extends Doctrine_Record
         $this->hasColumn('FechaVencimiento', 'date', null, array(
              'type' => 'date',
              ));
+        $this->hasColumn('OrdenDeTrabajoId', 'integer', 4, array(
+             'type' => 'integer',
+             'unsigned' => true,
+             'notnull' => true,
+             'length' => '4',
+             ));
 
 
         $this->index('fk_Factura_cliente1', array(
@@ -97,6 +104,12 @@ abstract class BaseFactura extends Doctrine_Record
              'fields' => 
              array(
               0 => 'TipoIvaId',
+             ),
+             ));
+        $this->index('fk_Factura_OrdenTrabajo1', array(
+             'fields' => 
+             array(
+              0 => 'OrdenDeTrabajoId',
              ),
              ));
         $this->option('collate', 'utf8_spanish_ci');
@@ -115,9 +128,9 @@ abstract class BaseFactura extends Doctrine_Record
              'local' => 'TipoIvaId',
              'foreign' => 'Id'));
 
-        $this->hasMany('OrdenDeTrabajo as OrdenesDeTrabajo', array(
-             'local' => 'Id',
-             'foreign' => 'FacturaId'));
+        $this->hasOne('OrdenDeTrabajo', array(
+             'local' => 'OrdenDeTrabajoId',
+             'foreign' => 'Id'));
 
         $this->hasMany('CobranzaLiquidacion as CobranzaLiquidaciones', array(
              'local' => 'Id',

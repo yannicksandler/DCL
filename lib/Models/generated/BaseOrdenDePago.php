@@ -19,7 +19,6 @@
  * @property Doctrine_Collection $Pagos
  * @property Doctrine_Collection $Liquidaciones
  * @property Doctrine_Collection $OrdenDePagoOrdenDeCompra
- * @property Doctrine_Collection $FacturasCompra
  * @property Doctrine_Collection $OrdenDePagoFacturasCompra
  * 
  * @package    ##PACKAGE##
@@ -99,10 +98,6 @@ abstract class BaseOrdenDePago extends Doctrine_Record
              'foreign' => 'OrdenDePagoId'));
 
         $this->hasMany('OrdenDePagoOrdenDeCompra', array(
-             'local' => 'Id',
-             'foreign' => 'OrdenDePagoId'));
-
-        $this->hasMany('FacturaCompra as FacturasCompra', array(
              'local' => 'Id',
              'foreign' => 'OrdenDePagoId'));
 

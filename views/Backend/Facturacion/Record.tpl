@@ -41,7 +41,7 @@
                         <td width="15%" align="center">
                         	<br>&raquo; <a class="VerFactura" id="{$record.Id}" >Ver factura</a>
                         	{if !$record.FechaAnulacion}
-                        	<br>&raquo; <a href="/Orden/ListVentas/FacturaId/{$record.Id}">Ver ordenes incluidas</a>
+                        	<br>&raquo; <a href="/Orden/Edit/id/{$record.OrdenDeTrabajoId}">Ver orden de trabajo</a>
                         	{/if}
                         	
                         	{if (!$record.FechaAnulacion)}

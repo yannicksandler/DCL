@@ -114,51 +114,62 @@ class Factura extends BaseFactura
 		$a['Subtotal'] = number_format($this->GetSubtotal(),2,'.','');
 		$a['PorcentajeIva'] = $this->GetPorcentajeIva();
 		$a['TotalIva'] = number_format($this->GetTotalIva(),2,'.','');
+
+		$orden = $this->getOrdenDeTrabajo();
 		
 		switch ($this->GetLetraFactura())
         {
-        		case 'A': 
-        			{
-        				$a['Ordenes'] = $this->GetOrdenes();
-        				break;
-        			}
         		case 'B': 
         			{
         				$porcentajeIncluido = ($this->GetPorcentajeIva()/100)+1;
-        				$a['Ordenes'] = $this->GetOrdenes();
-        				foreach($a['Ordenes'] as $o)
+        				$a['Orden'] = $orden;
+
+        				/*foreach($a['Ordenes'] as $o)
         				{
         					$o->TotalSinIva = $o->TotalSinIva*$porcentajeIncluido;
-        				}
-        				if($a['Factura']->ComentarioImporte > 0)
-        				{
-        					$a['Factura']->ComentarioImporte = $a['Factura']->ComentarioImporte*$porcentajeIncluido;
-        				}
+        				}*/
+
+						$a['Orden']->TotalSinIva = $a['Orden']->TotalSinIva*$porcentajeIncluido;
+
+						if($a['Factura']->ComentarioImporte > 0)
+						{
+							$a['Factura']->ComentarioImporte = $a['Factura']->ComentarioImporte*$porcentajeIncluido;
+						}
         				
         				break;
         			}
-        		case 'N': 
+        		default: // Case 'A' & Case 'N'
         			{
-        				$a['Ordenes'] = $this->GetOrdenes(); 
-        				break;
-        			}
-        		default: 
-        			{
-        				$a['Ordenes'] = $this->GetOrdenes(); 
+        				$a['Orden'] = $orden;
         				break;
         			}
         }
         
 		return $a;
 	}
-	
+
+	/**
+	 * A partir de ahora simplemente retorna LA orden de trabajo que corresponde a esa factura
+	 * @return OrdenDeTrabajo
+	 */
+	public function getOrdenDeTrabajo(){
+		return Doctrine::getTable('OrdenDeTrabajo')->find($this->OrdenDeTrabajoId);
+	}
+
+	/**
+	 * @return Doctrine_Collection
+	 * @throws Doctrine_Query_Exception
+	 * @deprecated Forma antigua de obtener las ordenes de una factura. Actualmente cada factura tiene su orden unica
+	 */
 	public function GetOrdenes()
 	{
 		$q  =   Doctrine_Query::create()
-                    ->from('OrdenDeTrabajo o')
-                    ->where('o.FacturaId = ?', $this->Id);
-                   
+                    ->from('OrdenDeTrabajo o');
+                    //->where('o.FacturaId = ?', $this->Id);
+
         return $q->execute();
+
+
 	}
 	
 	public function GetSubtotal()
@@ -167,13 +178,20 @@ class Factura extends BaseFactura
 		
 		if($this->TipoIva->GetLetraFactura() == 'A')
 		{
-			$ordenes = $this->GetOrdenes();
+			/*$ordenes = $this->GetOrdenes();
 			
 			foreach($ordenes as $o)
 			{
 				$total += $o->TotalSinIva;
 			}
 			
+			if($this->ComentarioImporte > 0)
+				$total += $this->ComentarioImporte;*/
+
+			$orden = $this->getOrdenDeTrabajo();
+
+			$total = $orden->TotalSinIva;
+
 			if($this->ComentarioImporte > 0)
 				$total += $this->ComentarioImporte;
 		}
@@ -234,20 +252,25 @@ class Factura extends BaseFactura
 	{
 		if(! $this->TieneImportePendiente())
 		{
-			$ordenes = $this->GetOrdenes();
+			/*$ordenes = $this->GetOrdenes();
 			foreach ($ordenes as $o)
 			{
-				/*
-				 * 20130522
-				 * o	Solución (controlar fuga de OT por Cobranza anticipada): 
-				 * cuando ingreso una cobranza de una factura que tiene OT, si la OT 
-				 * está en cualquier estado anterior o igual a Producción, no modificar 
-				 * estado ha Cobrado (sino sale de Producción, saltea proceso y se pierde).
-				 */
+
+			  //20130522
+			  //o	Solución (controlar fuga de OT por Cobranza anticipada):
+			  //cuando ingreso una cobranza de una factura que tiene OT, si la OT
+			  //está en cualquier estado anterior o igual a Producción, no modificar
+			  //estado ha Cobrado (sino sale de Producción, saltea proceso y se pierde).
+
 				if(!$o->PermiteCobranzaAnticipada())
 				{
 					$o->SetEstadoCobrado();
 				}
+			}*/
+			$orden = $this->getOrdenDeTrabajo();
+			if(!$orden->PermiteCobranzaAnticipada())
+			{
+				$orden->SetEstadoCobrado();
 			}
 		}
 	}
@@ -288,7 +311,7 @@ class Factura extends BaseFactura
 	
 	public function GetOrdenesDeTrabajoAsociadas()
 	{
-		$ordenes	=	'';
+		/*$ordenes	=	'';
 		$validadas	=	$this->GetOrdenes();
 	
 		foreach($validadas as $v)
@@ -296,12 +319,15 @@ class Factura extends BaseFactura
 			$ordenes	=	'<br>(OT '.$v->Id . ')<br>';
 		}
 	
-		return $ordenes;
+		return $ordenes;*/
+		$orden = $this->getOrdenDeTrabajo();
+		return '<br>(OT '.$orden->Id . ')<br>';
+
 	}
 	
 	public function GetCondicionDeCobro()
 	{
-		$ordenes	=	$this->GetOrdenes();
+		/*$ordenes	=	$this->GetOrdenes();
 		
 		foreach($ordenes as $o)
 		{
@@ -311,6 +337,17 @@ class Factura extends BaseFactura
 				return $condicion;
 		}
 		
+		return 'Sin condicion';*/
+		$orden = $this->getOrdenDeTrabajo();
+
+		if($orden->Presupuesto){
+			$condicion = $orden->Presupuesto->FormasDePago;
+		}
+
+
+		if($condicion)
+			return $condicion;
+
 		return 'Sin condicion';
 	}
 	

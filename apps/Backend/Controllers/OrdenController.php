@@ -32,7 +32,6 @@ class Backend_Controllers_OrdenController extends IDS_Controller_Action_Standard
        $OrdenDeTrabajoId  =   $this->GetRequest()->Param('OrdenDeTrabajoId');
        $PrioridadId  =   $this->GetRequest()->Param('PrioridadId');
        $FechaCambio  =   $this->GetRequest()->Param('FechaCambio');
-       $FacturaId  =   $this->GetRequest()->Param('FacturaId');
        
        // al cambiar una prioridad vuelve al listado, sirve para aviso en pantalla
         $SetPrioridad  =   $this->GetRequest()->Param('SetPrioridad');
@@ -44,9 +43,7 @@ class Backend_Controllers_OrdenController extends IDS_Controller_Action_Standard
 		
 		$return = array ();
 		$filters = array();
-		if(isset($FacturaId))
-			$filters['FacturaId'] = $FacturaId;
-			
+
 		$ordenQuery	=	Doctrine::getTable('OrdenDeTrabajo')->filter($NombreCliente, $estadoOrdenId, $OrdenDeTrabajoId, $PrioridadId, $order,$FechaCambio, $filters);
 		
 		$this->List->ProcessListQuery ( Doctrine::GetTable ( 'OrdenDeTrabajo' ),
@@ -306,7 +303,6 @@ class Backend_Controllers_OrdenController extends IDS_Controller_Action_Standard
         	//echo 'Hubo un error al obtener los insumos de la orden';
         	$view->SetParam("deleteErrorMessage", 'Hubo un error al obtener los insumos de la orden. '.$e->getMessage());
         }
-
     }
 
     public function SetPrioridadAction()

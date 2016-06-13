@@ -471,7 +471,8 @@
 		        $oc['Stamp'] = $this->convert_datetime($stamp);
 		        //echo $oc['Stamp']."\n";
 		        $oc['Detalle'] = '';
-		        $ordenes = $f->GetOrdenes();
+
+				/*$ordenes = $f->GetOrdenes();
 		        //print_r(count($ordenes));
 		        foreach($ordenes as $or)
 		        {
@@ -479,7 +480,12 @@
 		        	//$oc['Items'][] = $link;
 		        	$oc['Detalle'] = $oc['Detalle'] . 'OT '.$or->Id.' '.$or->Producto.'<br>';
 		        	$oc['Items'][] = "<a class=\"popup\" href=\"".$link."\">OT ".$or->Id." ".$or->Producto."</a>";
-		        }
+		        }*/
+				$orden = $f->getOrdenDeTrabajo();
+				$link	=	'/Orden/Edit/id/'.$orden->Id;
+				$oc['Detalle'] = $oc['Detalle'] . 'OT '.$orden->Id.' '.$orden->Producto.'<br>';
+				$oc['Items'][] = "<a class=\"popup\" href=\"".$link."\">OT ".$orden->Id." ".$orden->Producto."</a>";
+
 		        $filters['FechaHasta'] = $f->Fecha;
 	        	$oc['Saldo'] = $this->GetSaldoCliente($filters);
 		        

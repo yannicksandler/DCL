@@ -50,7 +50,7 @@ class Backend_Controllers_FacturacionController extends IDS_Controller_Action_St
 		if(isset($PendienteCobro) and ($PendienteCobro=='SI'))
 		{
 			$FacturasQuery	=	Doctrine::GetTable ( 'Factura' )->GetPendientesDeCobro($filters);
-			//echo $FacturasQuery->getSqlQuery();
+			echo $FacturasQuery->getSqlQuery();
 			$layout->SetParam ( 'CantidadEncontrados', count($FacturasQuery ));
 			$layout->SetParam ( 'sectionTitle', 'Listado de facturas que tienen importe por cobrar' );			
 		}

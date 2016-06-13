@@ -28,7 +28,6 @@
  * @property integer $PresupuestoId
  * @property date $FechaFacturacion
  * @property decimal $CostosDeInicioProduccion
- * @property integer $FacturaId
  * @property integer $TiempoEstimado
  * @property string $EsFicticia
  * @property integer $CreadorUsuarioId
@@ -36,10 +35,10 @@
  * @property OrdenEstado $Estado
  * @property Prioridad $Prioridad
  * @property Presupuesto $Presupuesto
- * @property Factura $Factura
  * @property Usuario $CreadorUsuario
  * @property Doctrine_Collection $Insumos
  * @property Doctrine_Collection $OrdenEstadoHistorial
+ * @property Doctrine_Collection $Facturas
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -157,10 +156,6 @@ abstract class BaseOrdenDeTrabajo extends Doctrine_Record
              'scale' => 2,
              'length' => '10',
              ));
-        $this->hasColumn('FacturaId', 'integer', 4, array(
-             'type' => 'integer',
-             'length' => '4',
-             ));
         $this->hasColumn('TiempoEstimado', 'integer', 4, array(
              'type' => 'integer',
              'unsigned' => true,
@@ -188,12 +183,6 @@ abstract class BaseOrdenDeTrabajo extends Doctrine_Record
              'fields' => 
              array(
               0 => 'EstadoId',
-             ),
-             ));
-        $this->index('fk_orden_de_trabajo_Factura1', array(
-             'fields' => 
-             array(
-              0 => 'FacturaId',
              ),
              ));
         $this->index('fk_creador_usuario1', array(
@@ -229,10 +218,6 @@ abstract class BaseOrdenDeTrabajo extends Doctrine_Record
              'local' => 'PresupuestoId',
              'foreign' => 'Id'));
 
-        $this->hasOne('Factura', array(
-             'local' => 'FacturaId',
-             'foreign' => 'Id'));
-
         $this->hasOne('Usuario as CreadorUsuario', array(
              'local' => 'CreadorUsuarioId',
              'foreign' => 'Id'));
@@ -242,6 +227,10 @@ abstract class BaseOrdenDeTrabajo extends Doctrine_Record
              'foreign' => 'OrdenId'));
 
         $this->hasMany('OrdenEstadoHistorial', array(
+             'local' => 'Id',
+             'foreign' => 'OrdenDeTrabajoId'));
+
+        $this->hasMany('Factura as Facturas', array(
              'local' => 'Id',
              'foreign' => 'OrdenDeTrabajoId'));
     }

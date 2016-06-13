@@ -326,21 +326,22 @@
         	$factory	= IDS_Factory_Manager::GetFactory();
         	$config		= $factory->GetConfig();
         	$fechainicio	=	$config->Get('facturacion.fechainicio');
-        	
+
         	$query	=	"
         	select sum(ot.totalsiniva) as Total
 			        	from orden_de_trabajo ot
+			        	left join factura f ON f.ordendetrabajoid = ot.id
 						where
 					      	ot.estadoid in (8,3,4)
-							and ot.facturaid is null
-						and ot.fechainicio>=".$fechainicio;
+							and f.id IS NULL
+							and ot.fechainicio>=".$fechainicio;
         	 
         	//Assume that you have connected to a database instance...
         	$statement = Doctrine_Manager::getInstance()->connection();
         	//$results = $statement->execute("SELECT * FROM paciente WHERE id = ?", array(1));
         	$results = $statement->execute($query);
         	$dataset	=	$results->fetchAll();
-        	//var_dump($dataset);
+
         	return number_format($dataset[0]['Total'],2,'.','');
         }
         
